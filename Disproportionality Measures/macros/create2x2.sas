@@ -37,8 +37,6 @@
 			quit;
 */
 
-libname signal 'C:\Users\mihend\Desktop\Signal Detection';
-
 %macro create2x2(ds,outds,prod_level,event_level,countvar);
 	Proc sql;
 		create table work.n11 as
