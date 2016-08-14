@@ -1,15 +1,17 @@
 /*
 Compute Summary Counts, Rates, and Signal Scores for PRR based on independence Model
-	This file expects the code in "2-Create 2x2.sas" to have run.
-		This includes the macro create2x2 which creates work.signal_2x2.
+	This file expects the output of the %create2x2 macro.
 	Inputs:
-		ds = dataset name that contains the prod_level, event_level as N11, N12, N21, N22 variables created by "2-Create 2x2.sas"
+		ds = dataset name that contains the prod_level, event_level as N11, N12, N21, N22 variables created by %create2x2
+		outds = output dataset name
 		prod_level = the column with product or drug codes
 			you can use a column that stands for product_characteristic combinations like Product/LOT
-			Before feeding the macro create a concatenation of the value you want to feed the macro
+			Before feeding the macro, create a concatenation of the value you want to feed the macro
 		event_level = the column with the event codes
 		Z_alpha = 1.96 for 95%, 1.645 for 90%, 2.326 for 98%, 2.576 for 99%
-	Output will be Signal_PRR in work library	
+		EBGM
+			N = (Default) do not include EBGM metrics
+			Y = also run the %EBGM macro - this increases run time	
 */
 
 %macro disproportionality(ds,outds,prod_level,event_level,Z_alpha,EBGM=N);

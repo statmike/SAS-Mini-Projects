@@ -1,4 +1,4 @@
-/* create the Nij (2x2) tables from the signal.sas7bdat dataset created by "1 - Read Data.sas" 
+/* create the Nij (2x2) tables from the input dataset - expecting columns DrugName, EventName, Nij 
 	Description of the 2 By 2 Margins
 		N1* is the row for the Product
 		N2* is the row for the "Other" values of product - the controls
@@ -10,27 +10,28 @@
 		N21 is the count for the Event and Control Products
 		N22 is the count for the control event/product combinations
 	Method
-		to save computation time simple calculations of N11, N1*, N*1, and Total are used to calculate:
+		to save computation time the more simple calculations of N11, N1*, N*1, and Total are used to calculate:
 		N12=N1*-N11
 		N21=N*1-N11
 		N22=Total-N11-N12-N21
-	The Macro Expects
+	The create2x2 macro expects
 		ds =  dataset name
+		outds = output dataset name
 		prod_level = the column with product or drug codes
 			you can use a column that stands for product_characteristic combinations like Product/LOT
-			Before feeding the macro create a concatenation of the value you want to feed the macro
+			Before feeding the macro, create a concatenation of the value you want to feed the macro
 		event_level = the column with the event codes
 		countvar = column with the counts for the rows values of prod_level and event_level
 			if your data is 1 row per event then create a column with value 1 to feed this place
-	diagnostics to see duplicate entries
+	Diagnostics - to see duplicate entries
 			proc sql;
-				select count(*) from (Select distinct DrugName, EventName from signal.signal);
-				select sum(Nij) from signal.signal;
+				select count(*) from (Select distinct DrugName, EventName from DatasetNameHere);
+				select sum(Nij) from DatasetNameHere;
 			quit;
 			proc sql;
 				create table test as
 					select drugname, eventname, count(*) as nrows
-					from signal.signal
+					from DatasetNameHere
 					group by drugname, eventname
 				;
 				create table test as select * from test where nrows>1; 

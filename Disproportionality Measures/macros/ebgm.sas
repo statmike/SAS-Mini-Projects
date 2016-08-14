@@ -1,7 +1,16 @@
 
 
 %macro EBGM(ds,outds,prod_level,event_level);
-
+	/*  
+		Based On the methods described in:
+			Bayesian Data Mining in Large Frequency Tables, with an Application to the FDA Spontaneous Reporting System
+			William DuMouchel
+			The American Statistician, Vol. 53, No. 3 (Aug., 1999), pp. 177-190
+			
+		Multi-Item Gamma Poisson Shrinker (MGPS) is use dto find intersting large cell counts in a large table of drugs and events
+		The empirical Bayes geometric mean (EBGM)  is an empirical Bayes estimate of RR obtained from model
+			RR = N11*(N11+N12+N21+N22) / (N11*N21)*(N11+N12)
+	*/
 	proc sort data = &ds.; by &prod_level &event_level; run;
 	    data &outds.;
             set &ds.;

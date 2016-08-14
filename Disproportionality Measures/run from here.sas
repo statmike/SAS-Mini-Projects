@@ -1,10 +1,10 @@
 /*
 NOTE:
 	EBGM metrics can be added to the output through the %disproportionality macro or called separately through %EBGM
-	when EBGM is request is can take awhile to execute - the example data provided runs aroun 30 minutes on my laptop
-	you can tinker with the MCMC setting within the %EBGM macro - specifically nmc=10000 thin=5 can be altered
+	When EBGM is requested it can take awhile to execute - the example data provided runs around 30 minutes on my laptop
+	You can tinker with the MCMC settings within the %EBGM macro - specifically nmc=10000 thin=5 can be altered
 	
-	The disproportionality will preserve the input dataset and add columns:
+	The disproportionality macro will preserve the input dataset columns and add columns:
 		Prod_Total
 		Event_Total
 		Total
@@ -23,7 +23,7 @@ NOTE:
 		PRR_PVALUE
 		PRR_E11
 		PRR_SRR
-		These added when EBGM=Y
+		These are added when EBGM=Y
 			EBGM_Unadj
 			EBGM
 			EBGM05
@@ -35,6 +35,6 @@ libname signal 'C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures';
 %disproportionality(Signal_2x2,Signal_disproportionality,DrugName, EventName, 1.96,EBGM=Y);
 
 /*
-to call just EBGM you can directly call the %EBGM macro
+to call just the EBGM macro you can directly call the %EBGM macro
 %EBGM(Signal_2x2,Signal_EBGM,DrugName,EventName);
 */
