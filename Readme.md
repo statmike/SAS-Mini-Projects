@@ -19,7 +19,9 @@ The folder structure for this repository is:
 
 ##Considerations
 I built these projects using my local PC based install of SAS.  For this reason the file references are windows format.  To replicate my setup on your machine you can store this repository in
+
 > C:\PROJECTS
+
 To move this project to another operating environment you need to change any paths used in libnames and filerefs.  I store any hardcoded paths at the top of .sas files.  I never hardcode paths inside of macros.
 
 ##Using Macros
