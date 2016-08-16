@@ -18,13 +18,20 @@ The folder structure for this repository is:
 		* Macros Folder
 
 ##Considerations
-I built these projects using my local PC based install of SAS.  For this reason the file references are windows format.  To replicate my setup on your machine you can store this repository in
+I built these projects using my local PC based install of SAS.  For this reason the file references are windows format.  To replicate my setup on your machine you can store this repository in:
 
 > C:\PROJECTS
 
-To move this project to another operating environment you need to change any paths used in libnames and filerefs.  I store any hardcoded paths at the top of .sas files.  I never hardcode paths inside of macros.
+To move this project to another operating environment or path you need to change any paths define by `libname` and `filename` statments.  I store any hardcoded paths at the top of .sas files.  I never hardcode paths inside of macros.
 
 ##Using Macros
+As shown in the *Layout* section, I store macros in subfolder named "Macros". To make these available to my SAS session I set these folders up as autocall locations.  In the [Organizing Macros]() project I have a macro called `%define_autocalls` that makes this easy.  To use this macro I first need to manually add the location of the Macros folder for *Organizing Macros* so that I can then call it for my *C:\PROJECTS* folder structure.
+
+I added these lines to my autoexec.sas file
+```sas
+options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAUTOS);
+%define_autocalls(C:\PROJECTS,SUB=Y);
+```
 
 ##Projects
 * [Disproportionality Measures](https://github.com/statmike/SAS-Mini-Projects/tree/master/Disproportionality%20Measures): PRR, RR, IC, EBGM (MGPS) and more
