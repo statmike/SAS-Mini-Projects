@@ -53,3 +53,35 @@ run;
 	
 %create2x2fromcases(grouped_events,Signal_grouped_events,case_n,DrugName,EventName,shape=LONG);
 %disproportionality(Signal_grouped_events,Signal_groups_disproportionality,DrugName,EventName,1.96,EBGM=N);
+
+/* what are these topics? 
+parts of this code will reference data outside of the repository and not be able to be reproduced
+*/
+libname em 'C:\PROJECTS\EMProjects\Adverse Event Grouping\Workspaces\EMWS1';
+libname events 'C:\Users\mihend\Desktop\Signal Detection';
+
+/* top five terms (events) per topic */
+data topics; set em.texttopic_topics;
+	TopicID=_topicid;
+	do i = 1 by 1 while(scan(_name,i,',')^=' ');
+		EventName=scan(_name,i,',');
+		EventName=upcase(EventName);
+		substr(EventName,2,4)='vent';
+		output;
+	end;
+	keep TopicID EventName;
+run;
+proc sql noprint undo_policy=NONE;
+	create table topics as 
+		select a.TopicID, a.EventName, b.EventName_Source
+		from
+			(select TopicID, EventName from topics) a
+			left outer join
+			(select EventName, EventName_Source from events.key_event) b
+			on a.EventName=b.EventName
+		order by a.TopicID, a.EventName
+	;
+quit;
+
+
+
