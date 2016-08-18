@@ -41,31 +41,31 @@
 %macro create2x2(ds,outds,prod_level,event_level,countvar);
 	Proc sql;
 		create table work.n11 as
-			select &prod_level, &event_level, sum(&countvar) as N11
-			from &ds
-			group by &prod_level, &event_level
+			select &prod_level., &event_level., sum(&countvar.) as N11
+			from &ds.
+			group by &prod_level., &event_level.
 		;
 	quit;
 	proc sql noprint;
 		create table work.N1x as
-			select &prod_level, sum(&countvar) as N1x
-			from &ds
-			group by &prod_level
+			select &prod_level., sum(&countvar.) as N1x
+			from &ds.
+			group by &prod_level.
 		;
 		create table work.Nx1 as
-			select &event_level, sum(&countvar) as Nx1
-			from &ds
-			group by &event_level
+			select &event_level., sum(&countvar.) as Nx1
+			from &ds.
+			group by &event_level.
 		;
-		select sum(&countvar) into :TOTAL from &ds;
-		create table &outds as
-			select a.&prod_level, a.&event_level, N11, (N1x-N11) as N12, (Nx1-N11) as N21, 
-					&TOTAL-(N1x-N11)-N11-(Nx1-N11) as N22 /*, &TOTAL as TOTAL */
+		select sum(&countvar.) into :TOTAL from &ds.;
+		create table &outds. as
+			select a.&prod_level., a.&event_level., N11, (N1x-N11) as N12, (Nx1-N11) as N21, 
+					&TOTAL.-(N1x-N11)-N11-(Nx1-N11) as N22 /*, &TOTAL as TOTAL */
 			from work.n11 a, work.n1x d, work.nx1 e
 			where
-				a.&prod_level=d.&prod_level
+				a.&prod_level.=d.&prod_level.
 				and
-				a.&event_level=e.&event_level
+				a.&event_level.=e.&event_level.
 		;
 		drop table N11;
 		drop table N1x;

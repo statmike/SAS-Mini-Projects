@@ -7,7 +7,7 @@
 			William DuMouchel
 			The American Statistician, Vol. 53, No. 3 (Aug., 1999), pp. 177-190
 			
-		Multi-Item Gamma Poisson Shrinker (MGPS) is use dto find intersting large cell counts in a large table of drugs and events
+		Multi-Item Gamma Poisson Shrinker (MGPS) is used to find intersting large cell counts in a large table of drugs and events
 		The empirical Bayes geometric mean (EBGM)  is an empirical Bayes estimate of RR obtained from model
 			RR = N11*(N11+N12+N21+N22) / (N11*N21)*(N11+N12)
 	*/
