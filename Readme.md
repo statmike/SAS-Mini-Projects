@@ -4,10 +4,10 @@ A library of SAS Examples.
 ##Contribute
 Have something to add?  Just fork it, change it, and create a pull request!
 
-Comments, questions, suggestion? Just use the issues feature here in github
+Have comments, questions, suggestions? Just use the issues feature here in github
 
 ##How to use this repository
-Each subfolder contains a project.  Each project has its own readme file and folder structure.  Some project will reference other projects for components.
+Each subfolder contains a project.  Each project has its own readme file and folder structure.  Some projects will reference other projects for components.
 
 ##Layout
 The folder structure for this repository is:
@@ -22,7 +22,7 @@ I built these projects using my local PC based install of SAS.  For this reason 
 
 > C:\PROJECTS
 
-To move this project to another operating environment or path you need to change any paths define by `libname` and `filename` statments.  I store any hardcoded paths at the top of .sas files.  I never hardcode paths inside of macros.
+To move this project to another operating environment or path you need to change any paths defined by `libname` and `filename` statments.  I store any hardcoded paths at the top of .sas files.  I never hardcode paths inside of macros.
 
 ##Using Macros
 As shown in the *Layout* section, macros are stored in subfolders named "Macros". To make these available to a SAS session these folders can be setup as autocall locations.  In the [Organizing Macros](https://github.com/statmike/SAS-Mini-Projects/tree/master/Organizing%20Macros) project there is a macro `%define_autocalls` that makes this easy.  To use this macro manually add the location of the *Macros* folder for *Organizing Macros* so that it can be called for the entire *C:\PROJECTS* folder structure.
