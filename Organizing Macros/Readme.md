@@ -3,12 +3,14 @@ The goal of this project is to create code and macros that make macros easy to d
 
 ##Quick Start:
 
-* [/Macros](./Macros)
-  * [%include_folder](./Macros/include_folder.sas)
-  * [%combine_macros](./Macros/combine_macros.sas)
-  * [%define_autocalls](./Macros/define_autocalls.sas)
+* [`/Macros`](./Macros)
+  * [`%include_folder`](./Macros/include_folder.sas)
+    * See (2) below
+  * [`%combine_macros`](./Macros/combine_macros.sas)
+    * See (3) below
+  * [`%define_autocalls`](./Macros/define_autocalls.sas)
 * Examples:
-  * see code in [example runs.sas](example runs.sas)
+  * see code in [`example runs.sas`](example runs.sas)
 
 ##Background
 Good information for using and managing SAS macros is found in the SAS documentation:
@@ -30,10 +32,10 @@ My view of using macros is that they have different scopes depending on purpose.
 ###For (1): Ad-hoc coding
 With ad-hoc coding, macros have a short span of use.  The typical practice is to start by putting macros within the code file.  A best practice is keeping macro definitions near the top of the code file.
 	
-As the number of macros and the length of macros grow it can be a good next step to move macros to a secondary file and then '%include('path here')' the macros file within the main code file.  This will include all the macro code during each execution of the main code.  This method allows the macros to easily be edited and tested.  The macros will recompile at each job submission and catch any changes from edits.
+As the number of macros and the length of macros grow it can be a good next step to move macros to a secondary file and then `%include('path here')` the macros file within the main code file.  This will include all the macro code during each execution of the main code.  This method allows the macros to easily be edited and tested.  The macros will recompile at each job submission and catch any changes from edits.
 	
 ###For (2): Project development
-During project development you need the flexibility of ad-hoc coding in (1) but with an end goal of deploying the final "locked" macros.  In this case, my goal is to eventually deploy macros in an autocall library.
+During project development you need the flexibility of ad-hoc coding in (1) but with an end goal of deploying the final macros.  In this case, my goal is to eventually deploy macros in an autocall library.
 
 Sidebar on autocall library usage:
 >To use an autocall library you store macros in `name.sas` files where the name matches the name of the contained macro.  At job execution, SAS will look through autocall folders in the order they are defined until it finds the first `name.sas` file that matches the current macro call.
@@ -42,7 +44,7 @@ Sidebar on autocall library usage:
 
 During this phase I do not setup the autocall location.  Instead, I create a folder within my project called "Macros" and store each individual macro file within it.  I then open the `name.sas` files for each macro I am editing within my session editor and edit similar to ad-hoc mode but with more organization. 
 
-If I am using a session editior like SAS Display Manager (PC SAS) or SAS Studio then I usually just submit each macro separately prior to running the main `code.sas` file.  This makes the macros available for the `code.sas` file run.  If I need to edit a macro I can just resubmit the individual macro and then the new version is available when I rerun my `code.sas` file.  
+If I am using a session editior like *SAS Display Manager (PC SAS)* or *SAS Studio* then I usually just submit each macro separately prior to running the main `code.sas` file.  This makes the macros available for the `code.sas` file run.  If I need to edit a macro I can just resubmit the individual macro and then the new version is available when I rerun my `code.sas` file.  
 
 When the number of macros increases, it can be handy to submit all the contents of the Macros folder for a project and then just open/edit the macros you are currently working on.  For this reason I have created a few macros for macros.
 
@@ -50,7 +52,7 @@ When the number of macros increases, it can be handy to submit all the contents 
 * Includes all the files in the input directory.  Has option, `sub=` (Y or N),  for evaluating sub-directories and finding folders named `/Macros`.
 
 [`%combine_macros`](./Macros/combine_macros.sas)
-* Combines all the `*.sas` files in the input directory into a single file called `allmacros.sas` (name is configurable with `file=` option).  Has an option for evaluating sub-directories (`sub=` with Y or N) and finding folders named `/Macros".  The output file will be placed the directory given as an input.
+* Combines all the `*.sas` files in the input directory into a single file called `allmacros.sas` (name is configurable with `file=` option).  Has an option for evaluating sub-directories (`sub=` with Y or N) and finding folders named `/Macros`.  The output file will be placed the directory given as an input.
 
 These macros can also be helpful for creating test versions of your overall project that you want to share with others to test.
 	
