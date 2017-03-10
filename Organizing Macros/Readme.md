@@ -3,10 +3,10 @@ The goal of this project is to create code and macros that make macros easy to d
 
 ##Quick Start:
 
-* [/Macros](/Macros)
-  * ['%include_folder'](/Macros/include_folder.sas)
-  * '%combine_macros'
-  * '%define_autocalls'
+* [/Macros](./Macros)
+  * [%include_folder](./Macros/include_folder.sas)
+  * [%combine_macros](./Macros/combine_macros.sas)
+  * [%define_autocalls](./Macros/define_autocalls.sas)
 * Examples:
   * see code in "example runs.sas"
 
