@@ -28,17 +28,17 @@ My view of using macros is that they have different scopes depending on purpose.
 
 	
 ###For (1): Ad-hoc coding
-With ad-hoc coding macros have a short span of use.  The typical practice is to start by putting macros within the code file.  A best practice is keeping macro definitions near the top of the code file.
+With ad-hoc coding, macros have a short span of use.  The typical practice is to start by putting macros within the code file.  A best practice is keeping macro definitions near the top of the code file.
 	
 As the number of macros and the length of macros grow it can be a good next step to move macros to a secondary file and then '%include('path here')' the macros file within the main code file.  This will include all the macro code during each execution of the main code.  This method allows the macros to easily be edited and tested.  The macros will recompile at each job submission and catch any changes from edits.
 	
 ###For (2): Project development
-During project development you need the flexibility of ad-hoc coding in (1) but with an end goal of deploying the final "locked" macros.  My goal is to eventually deploy macros in an autocall library.
+During project development you need the flexibility of ad-hoc coding in (1) but with an end goal of deploying the final "locked" macros.  In this case, my goal is to eventually deploy macros in an autocall library.
 
 Sidebar on autocall library usage:
-	To use an autocall library you store macros in name.sas files where the name matches the name of the contained macro.  At job execution SAS will look through autocall folders in the order they are defined until it finds the first name.sas file that matches the current macro call.
+>To use an autocall library you store macros in `name.sas` files where the name matches the name of the contained macro.  At job execution, SAS will look through autocall folders in the order they are defined until it finds the first `name.sas` file that matches the current macro call.
 
-	SAS will only do this during the first call to a macro during a session.  After that, the compiled macro will be reused at subsequent calls.  This is very efficient and desired behavior as long as you are not editing the macro.  Note: if you add a macro to an autocall library it will only be found if it has not been previously called.  I call this out because if you have a local version that has been used in your session it will continue to be the one SAS uses.  Also, if you try calling a macro and realize it is not available and then add it to an autocall location (or edit the autocall locations) it will not be found until you start a new session.
+>SAS will only do this during the first call to a macro during a session.  After that, the compiled macro will be reused at subsequent calls.  This is very efficient and desired behavior as long as you are not editing the macro.  Note: if you adding a macro to an autocall library it will only be found if it has not been previously called.  I call this out because if you have a local version that has been used in your session it will continue to be the one SAS uses for the rest of that session.  Also, if you try calling a macro and realize it is not available and then add it to an autocall location (or edit the autocall locations) it will not be found until you start a new session.
 
 During this phase I do not setup the autocall location.  Instead, I create a folder within my project called "Macros" and store each individual macro file within it.  I then open the name.sas files for each macro I am editing within my session editor and edit similar to ad-hoc mode but with more organization. 
 
