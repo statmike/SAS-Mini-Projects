@@ -1,23 +1,26 @@
 #Organizing Macros
-The goal of this project is to create code and macros that make macros easy to deploy
+The goal of this project is to create code and macros that make macros easy to deploy in your SAS environment
 
 ##Quick Start:
-* Macros:
-  * %include_folder
-  %combine_macros
-  %define_autocalls
+
+* [/Macros](/Macros)
+  * ['%include_folder'](/Macros/include_folder.sas)
+  * '%combine_macros'
+  * '%define_autocalls'
 * Examples:
   * see code in "example runs.sas"
 
 ##Background
-A good writeup describing using and managing SAS macros can be found in the SAS documentation:
+Good information for using and managing SAS macros is found in the SAS documentation:
+
 * Overall Link: https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#bookinfo.htm
 * Storing and Reusing Macros: https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#n01bfugbyvoyvmn1s2xghj1q1r2s.htm
 * Efficiency and Portability: https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p04s69a9d2x7cnn1iukqe9zn4bo5.htm
 * How macros processing works: https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p0znr2zp0ubdzjn10wmhw0y2ef1q.htm
 	
-##Overview
+##Overview of Macro Usage
 My view of using macros is that they have different scopes depending on purpose.  Macros are used in several modes and need different levels of flexibility depending on the use:
+
 1. Ad-hoc coding
 2. Project developoment
 3. Project deployment
@@ -27,7 +30,7 @@ My view of using macros is that they have different scopes depending on purpose.
 ###For (1): Ad-hoc coding
 With ad-hoc coding macros have a short span of use.  The typical practice is to start by putting macros within the code file.  A best practice is keeping macro definitions near the top of the code file.
 	
-As the number of macros and the length of macros grow it can be a good next step to move macros to a secondary file and then %include the macros file with the main code file.  This will include all the macro code during each execution of the main code.  This method allows the macros to easily be edited and tested.  The macros will recompile at each job submission and catch any changes from edits.
+As the number of macros and the length of macros grow it can be a good next step to move macros to a secondary file and then '%include('path here')' the macros file within the main code file.  This will include all the macro code during each execution of the main code.  This method allows the macros to easily be edited and tested.  The macros will recompile at each job submission and catch any changes from edits.
 	
 ###For (2): Project development
 During project development you need the flexibility of ad-hoc coding in (1) but with an end goal of deploying the final "locked" macros.  My goal is to eventually deploy macros in an autocall library.
@@ -68,5 +71,5 @@ Before doing these you may want to just define the sasautos for your session.  T
 ###For (4): Project hardening
 Hardening is going the next step in the process of deploying reusable code.  In this case I am referring to precompiling macros and securing the contents of macros.  Precompiling allows faster execution as each session does not need to read and compile the macro code.  Securing projects the contents of the macro and keeps them from being edited.  You can also prevent macros code from showing up in logs, even when Options MPRINT is used.  This can be very useful when you do not want users going around a macro by creating a local version with edits to override the production version.
 
-Storing Compiled Macros: http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#n0sjezyl65z1cpn1b6mqfo8115h2.htm
-Securing Macros: http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p1nypovnwon4uyn159rst8pgzqrl.htm
+* Storing Compiled Macros: http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#n0sjezyl65z1cpn1b6mqfo8115h2.htm
+* Securing Macros: http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p1nypovnwon4uyn159rst8pgzqrl.htm
