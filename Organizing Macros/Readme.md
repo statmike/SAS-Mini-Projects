@@ -40,17 +40,17 @@ Sidebar on autocall library usage:
 
 >SAS will only do this during the first call to a macro during a session.  After that, the compiled macro will be reused at subsequent calls.  This is very efficient and desired behavior as long as you are not editing the macro.  Note: if you adding a macro to an autocall library it will only be found if it has not been previously called.  I call this out because if you have a local version that has been used in your session it will continue to be the one SAS uses for the rest of that session.  Also, if you try calling a macro and realize it is not available and then add it to an autocall location (or edit the autocall locations) it will not be found until you start a new session.
 
-During this phase I do not setup the autocall location.  Instead, I create a folder within my project called "Macros" and store each individual macro file within it.  I then open the name.sas files for each macro I am editing within my session editor and edit similar to ad-hoc mode but with more organization. 
+During this phase I do not setup the autocall location.  Instead, I create a folder within my project called "Macros" and store each individual macro file within it.  I then open the `name.sas` files for each macro I am editing within my session editor and edit similar to ad-hoc mode but with more organization. 
 
-If I am using a session editior like SAS Display manager or SAS Studio then I usually just submit each macro separately prior to running the main code.sas file.  This makes the macros available for the code.sas file run.  If I need to edit a macro I can just resubmit the individual macro and then the new version is available when I rerun my code.sas file.  
+If I am using a session editior like SAS Display Manager (PC SAS) or SAS Studio then I usually just submit each macro separately prior to running the main `code.sas` file.  This makes the macros available for the `code.sas` file run.  If I need to edit a macro I can just resubmit the individual macro and then the new version is available when I rerun my `code.sas` file.  
 
-When the number of macros increases it can be handy to submit all the contents of the Macros folder for a project and then just open/edit the macros you are currently working on.  For this reason I have created a few macros for macros.
+When the number of macros increases, it can be handy to submit all the contents of the Macros folder for a project and then just open/edit the macros you are currently working on.  For this reason I have created a few macros for macros.
 
-%include_folder
-	Includes all the files in the input directory.  Has option for evaluating sub-directories and finding folders named "Macros".
+[`%include_folder`](./Macros/include_folder.sas)
+* Includes all the files in the input directory.  Has option, `sub=` (Y or N),  for evaluating sub-directories and finding folders named `/Macros`.
 
-%combine_macros
-	Combines all the .sas files in the input directory into a single file called allmacros.sas (name is configurable with file=).  Has an option for evaluating sub-directories and finding folders named "Macros".  The output file will be placed the directory given as an input.
+[`%combine_macros`](./Macros/combine_macros.sas)
+* Combines all the `*.sas` files in the input directory into a single file called `allmacros.sas` (name is configurable with `file=` option).  Has an option for evaluating sub-directories (`sub=` with Y or N) and finding folders named `/Macros".  The output file will be placed the directory given as an input.
 
 These macros can also be helpful for creating test versions of your overall project that you want to share with others to test.
 	
