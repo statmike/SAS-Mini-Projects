@@ -8,7 +8,7 @@ The goal of this project is to create code and macros that make macros easy to d
   * [%combine_macros](./Macros/combine_macros.sas)
   * [%define_autocalls](./Macros/define_autocalls.sas)
 * Examples:
-  * see code in "example runs.sas"
+  * see code in [example runs.sas](example runs.sas)
 
 ##Background
 Good information for using and managing SAS macros is found in the SAS documentation:
