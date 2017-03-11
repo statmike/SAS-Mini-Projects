@@ -15,16 +15,16 @@ The goal of this project is to create code and macros that make macros easy to d
 ##Background
 Good information for using and managing SAS macros is found in the SAS documentation:
 
-* Overall Link: https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#bookinfo.htm
-* Storing and Reusing Macros: https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#n01bfugbyvoyvmn1s2xghj1q1r2s.htm
-* Efficiency and Portability: https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p04s69a9d2x7cnn1iukqe9zn4bo5.htm
-* How macros processing works: https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p0znr2zp0ubdzjn10wmhw0y2ef1q.htm
+* [Overall Link](https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#bookinfo.htm)
+  * [Storing and Reusing Macros](https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#n01bfugbyvoyvmn1s2xghj1q1r2s.htm)
+  * [Efficiency and Portability](https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p04s69a9d2x7cnn1iukqe9zn4bo5.htm)
+  * [How macros processing works](https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p0znr2zp0ubdzjn10wmhw0y2ef1q.htm)
 	
 ##Overview of Macro Usage
 My view of using macros is that they have different scopes depending on purpose.  Macros are used in several modes and need different levels of flexibility depending on the use:
 
 1. Ad-hoc coding
-2. Project developoment
+2. Project development
 3. Project deployment
 4. Project hardening
 
@@ -57,12 +57,12 @@ When the number of macros increases, it can be handy to submit all the contents 
 These macros can also be helpful for creating test versions of your overall project that you want to share with others to test.
 	
 ###For (3): Project deployment
-At this point in a project the code editing of macros is complete.  The next step is defining and setting up the macros for autocall.  To do this you either store the macros in an existing autocall folder or you setup the location of the macros with the project as an autocall location.  I prefer the later method as it is easier to organize macros and track them.  
+At this point in a project the code editing of macros is complete.  The next step is defining and setting up the macros for autocall.  To do this you either store the macros in an existing autocall folder or you setup the location of the macros within the project as an autocall location.  I prefer the later method as it is easier to organize macros and track them.  
 
-To make setting up autocall location easy across all of my project I have a macro that takes advantage how I organize my SAS projects.  My production projects are all in a folder called "SAS Projects".  Sub-folders within this are named for each individual project.  Within these project folders I create my "Macros" folder.  
+To make setting up autocall locations easy across all of my projects I have a macro that takes advantage how I organize my SAS projects.  My production projects are all in a folder called "SAS Projects".  Sub-folders within this are named for each individual project.  Within these project folders I create my `/Macros` folder.  
 
-You can set sasautos for your system by editing the sasv9.cfg file found in !sasroot\nls\en\sasv9.cfg.
-You can set sasautos for a user by editing the autoexec file like this:
+You can set sasautos for your system by editing the sasv9.cfg file found in `!sasroot\nls\en\sasv9.cfg`.
+You can set sasautos for a user by editing the `autoexec.sas` file like this:
 	options sasautos=("newdir" "newdir2" "newdir3" SASAUTOS);
 
 Before doing these you may want to just define the sasautos for your session.  The following macro makes it easy to add all the folders with the name "macros" (any case) to your SASAUTOS:
@@ -71,7 +71,7 @@ Before doing these you may want to just define the sasautos for your session.  T
 	Add the input directory to the SASAUTOS definition using Options SASAUTOS=.  With the options SUB=Y it will find all subfolder (including the provided folder) named "Macros" (any case) and add these to SASAUTOS.  Check the log when execution is done and you will find the new value of SASAUTOS listed.
 	
 ###For (4): Project hardening
-Hardening is going the next step in the process of deploying reusable code.  In this case I am referring to precompiling macros and securing the contents of macros.  Precompiling allows faster execution as each session does not need to read and compile the macro code.  Securing projects the contents of the macro and keeps them from being edited.  You can also prevent macros code from showing up in logs, even when Options MPRINT is used.  This can be very useful when you do not want users going around a macro by creating a local version with edits to override the production version.
+Hardening is going the next step in the process of deploying reusable code.  In this case I am referring to precompiling macros and securing the contents of macros.  Precompiling allows faster execution as each session does not need to read and compile the macro code.  Securing protects the contents of the macro and keeps them from being edited.  You can also prevent macro code from showing up in logs, even when `Options MPRINT;` is used.  This can be very useful when you do not want users going around a macro by creating a local version with edits to override the production version.  It is also a good strategy when you want to protect potential intellectual property while distributing a macro.
 
-* Storing Compiled Macros: http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#n0sjezyl65z1cpn1b6mqfo8115h2.htm
-* Securing Macros: http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p1nypovnwon4uyn159rst8pgzqrl.htm
+* [Storing Compiled Macros] (http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#n0sjezyl65z1cpn1b6mqfo8115h2.htm)
+* [Securing Macros] (http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p1nypovnwon4uyn159rst8pgzqrl.htm)
