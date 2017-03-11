@@ -96,9 +96,10 @@ Sidebar on `autoexec.sas` edits for including all macros in your projects direct
  >If you store all code for your finished (or mature) projects in a folder like `C:\PROJECTS` then you can use the `%define_autocalls` macro along with `options sasautos=` in your `autoexec.exe` to make sure all folders named `/Macros` (any case) are included in every SAS session.
  >Add these lines to the users `autoexec.sas` file:
  >```
- options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAUTOS);
+options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAUTOS);
 %define_autocalls(C:\PROJECTS,SUB=Y);
 >```
+> The first step addes the folder containing the `%define_autocalls` macro and the second line uses that macro on the full folder structure.
 	
 ###For (4): Project hardening
 Hardening is going the next step in the process of deploying reusable code.  In this case I am referring to precompiling macros and securing the contents of macros.  Precompiling allows faster execution as each session does not need to read and compile the macro code.  Securing protects the contents of the macro and keeps them from being edited.  You can also prevent macro code from showing up in logs, even when `Options MPRINT;` is used.  This can be very useful when you do not want users going around a macro by creating a local version with edits to override the production version.  It is also a good strategy when you want to protect potential intellectual property while distributing a macro.
