@@ -83,7 +83,7 @@ To make setting up autocall locations easy across all of my projects I have a ma
 You can set sasautos for your system by editing the 'sasv9.cfg' file found in `!sasroot\nls\en\sasv9.cfg`.
 
 You can set sasautos for a user by editing the `autoexec.sas` file to include a line like this:
-```
+```sas
 options sasautos=("newdir" "newdir2" "newdir3" SASAUTOS);
 ```
 
@@ -95,7 +95,7 @@ Before doing this you may want to just define the sasautos for your session.  Th
 Sidebar on `autoexec.sas` edits for including all macros in your projects directory:
  >If you store all code for your finished (or mature) projects in a folder like `C:\PROJECTS` then you can use the `%define_autocalls` macro along with `options sasautos=` in your `autoexec.exe` to make sure all folders named `/Macros` (any case) are included in every SAS session.
  >Add these lines to the users `autoexec.sas` file:
- >```
+ >```sas
 options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAUTOS);
 %define_autocalls(C:\PROJECTS,SUB=Y);
 >```
