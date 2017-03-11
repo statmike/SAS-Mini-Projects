@@ -5,12 +5,31 @@ The goal of this project is to create code and macros that make macros easy to d
 
 * [`/Macros`](./Macros)
   * [`%include_folder`](./Macros/include_folder.sas)
-    * See (2) below
+    * Does a `%include` for all .sas files in the input directory
+    * Inputs:
+      * `dir` = directory path
+      * `SUB=`
+        * `N` (default) to include all `*.sas` files in the path specified as `dir`
+        * `Y` to include all `*.sas` files in subfolders of `dir` named `/Macros` (any case) - this includes the directory path if it is named `/Macros`
+      * `SOURCE2=`
+        * `N` (default) log will not print contents of `%included` files
+        * `Y` log will print contents of `%include` files
   * [`%combine_macros`](./Macros/combine_macros.sas)
-    * See (3) below
+    * Combines all the `*.sas` files in the input directory into a single filed named `allmacros.sas`
+      * `dir` = directory path
+      * `file=` is the name of the combined file (default=`allmacros`) - you do not need to write `.sas` file extention
+      * `SUB=`
+        * `N` (default) to include all `*.sas` files in the path specified as `dir`
+        * `Y` to include all `*.sas` files in subfolders of `dir` named `/Macros` (any case) - this includes the directory path if it is named `/Macros`
   * [`%define_autocalls`](./Macros/define_autocalls.sas)
+    * Adds the input directory to the SASAUTOS definition using `Options SASAUTOS=`
+      * `dir` = directory path
+      * `SUB=`
+        * `N` (default) add the path specified as `dir` only
+        * `Y` to include all paths for subfolders of `dir` named `/Macros` (any case) - this includes the directory path if it is named `/Macros`
+      * `level=session`
 * Examples:
-  * see code in [`example runs.sas`](example runs.sas)
+  * Review code in [`example runs.sas`](example runs.sas)
 
 ##Background
 Good information for using and managing SAS macros is found in the SAS documentation:
@@ -64,14 +83,14 @@ To make setting up autocall locations easy across all of my projects I have a ma
 You can set sasautos for your system by editing the 'sasv9.cfg' file found in `!sasroot\nls\en\sasv9.cfg`.
 
 You can set sasautos for a user by editing the `autoexec.sas` file to include a line like this:
-'''
+```
 options sasautos=("newdir" "newdir2" "newdir3" SASAUTOS);
-'''
+```
 
 Before doing this you may want to just define the sasautos for your session.  The following macro makes it easy to add all the folders with the name `/Macros` (any case) to your SASAUTOS:
 
 * [`%define_autocalls`](./Macros/define_autocalls.sas)
-  * This adds the input directory to the SASAUTOS definition using `Options SASAUTOS=`.  With the options `SUB=Y` it will find all subfolders (including the provided folder) named `/Macros` (any case) and add these to SASAUTOS.  Check the log when execution is done and you will find the new value of SASAUTOS listed.
+  * This adds the input directory to the SASAUTOS definition using `Options SASAUTOS=`.  With the option `SUB=Y` it will find all subfolders (including the provided folder) named `/Macros` (any case) and add these to SASAUTOS.  Check the log when execution is done and you will find the new value of SASAUTOS listed.
 	
 ###For (4): Project hardening
 Hardening is going the next step in the process of deploying reusable code.  In this case I am referring to precompiling macros and securing the contents of macros.  Precompiling allows faster execution as each session does not need to read and compile the macro code.  Securing protects the contents of the macro and keeps them from being edited.  You can also prevent macro code from showing up in logs, even when `Options MPRINT;` is used.  This can be very useful when you do not want users going around a macro by creating a local version with edits to override the production version.  It is also a good strategy when you want to protect potential intellectual property while distributing a macro.
