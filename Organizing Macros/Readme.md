@@ -61,14 +61,17 @@ At this point in a project the code editing of macros is complete.  The next ste
 
 To make setting up autocall locations easy across all of my projects I have a macro that takes advantage how I organize my SAS projects.  My production projects are all in a folder called "SAS Projects".  Sub-folders within this are named for each individual project.  Within these project folders I create my `/Macros` folder.  
 
-You can set sasautos for your system by editing the sasv9.cfg file found in `!sasroot\nls\en\sasv9.cfg`.
-You can set sasautos for a user by editing the `autoexec.sas` file like this:
-	options sasautos=("newdir" "newdir2" "newdir3" SASAUTOS);
+You can set sasautos for your system by editing the 'sasv9.cfg' file found in `!sasroot\nls\en\sasv9.cfg`.
 
-Before doing these you may want to just define the sasautos for your session.  The following macro makes it easy to add all the folders with the name "macros" (any case) to your SASAUTOS:
+You can set sasautos for a user by editing the `autoexec.sas` file to include a line like this:
+'''
+options sasautos=("newdir" "newdir2" "newdir3" SASAUTOS);
+'''
 
-%define_autocalls
-	Add the input directory to the SASAUTOS definition using Options SASAUTOS=.  With the options SUB=Y it will find all subfolder (including the provided folder) named "Macros" (any case) and add these to SASAUTOS.  Check the log when execution is done and you will find the new value of SASAUTOS listed.
+Before doing this you may want to just define the sasautos for your session.  The following macro makes it easy to add all the folders with the name `/Macros` (any case) to your SASAUTOS:
+
+* [`%define_autocalls`](./Macros/define_autocalls.sas)
+  * This adds the input directory to the SASAUTOS definition using `Options SASAUTOS=`.  With the options `SUB=Y` it will find all subfolders (including the provided folder) named `/Macros` (any case) and add these to SASAUTOS.  Check the log when execution is done and you will find the new value of SASAUTOS listed.
 	
 ###For (4): Project hardening
 Hardening is going the next step in the process of deploying reusable code.  In this case I am referring to precompiling macros and securing the contents of macros.  Precompiling allows faster execution as each session does not need to read and compile the macro code.  Securing protects the contents of the macro and keeps them from being edited.  You can also prevent macro code from showing up in logs, even when `Options MPRINT;` is used.  This can be very useful when you do not want users going around a macro by creating a local version with edits to override the production version.  It is also a good strategy when you want to protect potential intellectual property while distributing a macro.
