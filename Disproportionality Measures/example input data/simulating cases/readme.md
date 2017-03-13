@@ -4,7 +4,7 @@
 When problems, adverse events, occur while taking a drug or using a medical device, they should be reported to the company that created them.  This is called a spontanous report.  Databases of the reports are mined to uncover potential issues where an event is potentially driven by the use of the drug or device.  Given that these databases only contain responses and are missing all the instances of no event with the drug or device, a different type of analysis is used to find abnormal combinations of drug/event.  These types of analysis are called disproportionality measures.  An overview of common ones of these and how to calculate them can be found in [Disproportionality Measures](../../.)
 
 ##Method of Simulation
-To get a simulated sample with meaningful representations of drug/event combinations and representative frequencies, a dataset of coded real adverse events data is used to create distributions: `drug_event_example.sas7bdat` in [/example input data](../).  This sample data is missing case information so a distribution of expected number of unique events per case is created within the simulation.
+To get a simulated sample with meaningful representations of drug/event combinations and representative frequencies, a dataset of coded real adverse events data is used to create distributions: `drug_event_example.sas7bdat` in [/Disproportionality Measures/example input data](../).  This sample data is missing case information so a distribution of expected number of unique events per case is created within the simulation.
 
 * `drug_event_example.sas7bdat` is a coded dataset created from a real adverse event database with 385,734 drug/event combinations
 
@@ -36,7 +36,7 @@ This will create `sample_case_rows.sas7bdat` and `sample_cases.sas7bdat` within 
     * `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more capital letters
     * `Events` is a string of 1 or more space delimittted coded values for adverse events of the form `EventX` where `X` is a series of 1 or more capital letters
 
-* `sample_cases.sas7bdat` is long version of `sample_case_rows.sas7bdat` where each `Event` string has been parsed into a single row for each `EventName` for a total of 31,451 drug/event occurences (reports).
+* `sample_cases.sas7bdat` is long version of `sample_case_rows.sas7bdat` where each `Event` string has been parsed into a single row for each `EventName` for a total of 31,291 drug/event occurences (reports).
 
   |Case_N|DrugName|EventName|
   |---|---|---|

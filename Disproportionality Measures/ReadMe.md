@@ -121,7 +121,7 @@ This repository comes with sample data for running the code in the [`/example in
     * `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more capital letters
     * `Events` is a string of 1 or more space delimittted coded values for adverse events of the form `EventX` where `X` is a series of 1 or more capital letters
 
-* `sample_cases.sas7bdat` is long version of `sample_case_rows.sas7bdat` where each `Event` string has been parsed into a single row for each `EventName` for a total of 31,451 drug/event occurences (reports).
+* `sample_cases.sas7bdat` is long version of `sample_case_rows.sas7bdat` where each `Event` string has been parsed into a single row for each `EventName` for a total of 31,291 drug/event occurences (reports).
 
   |Case_N|DrugName|EventName|
   |---|---|---|
