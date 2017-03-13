@@ -104,9 +104,9 @@ list=WIDE - skips conversion of case list in multiple rows to single row (%cases
 ##Sample Data
 This repository comes with sample data for running the code in the [`/example input data`](./example input data/):
 * `drug_event_example.sas7bdat` is a coded dataset created from a real adverse event database with 385,734 drug/event combinations
->
-|DrugName|EventName|Nij|
-|---|---|---|
+
+  |DrugName|EventName|Nij|
+  |---|---|---|
 
 > * `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more captital letters
 * `EventName` is a coded value for a adverse event of the form `EventX` where `X` is a series of 1 or more capital letters
