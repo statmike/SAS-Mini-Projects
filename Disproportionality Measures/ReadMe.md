@@ -134,7 +134,7 @@ This repository comes with sample data for running the code in the [`/example in
 * `textminedcases_transaction.sas7bdat` - MORE TO COME
 
 ###Simulating Sample Data
-For more information about how the Sample Data was created and how to create more samples visit [`/example input data/simulating cases`](./example input data/simulating cases/). 
+For more information about how the *Sample Data* was created and how to create more samples visit [`/example input data/simulating cases`](./example input data/simulating cases/). 
 
 ##Text Mining for groups of events
 See notes in "Text Mining Event Combinations Example.sas"
