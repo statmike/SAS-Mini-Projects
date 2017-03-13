@@ -1,16 +1,16 @@
 #Synopsis
 The code in this project is used to calculate disproportionality measures on data such as spontaneously reported adverse events.
 
-#Background
-In drug adverse event complaints data every case is a response.  This makes signal detection, or finding abnormal drug/event combination, an exercise in finding disproportionately large drug/event reports.
-Method for doing this are called disproportionality measures.  Before calculating disproportionality measures it is first important to calculate the information about drug/event combinations with the database such that for all drug/event combination you know:
+##Background
+In drug adverse event complaints data every case is a response.  This makes signal detection, or finding abnormal drug/event combinations, an exercise in finding disproportionately large drug/event reports.
+Methods for doing this are called disproportionality measures.  Before calculating disproportionality measures it is first important to calculate the information about drug/event combinations within the database such that for all drug/event combination you know:
 
 * N11 is the count for the Product/Event combination
 * N12 is the count for the Product and non-Events
 * N21 is the count for the Event and Control Products
 * N22 is the count for the control event/product combinations
 
-Or
+In other words, this table for each drug/event combination
 
 |Drug|Adverse Event|All other Adverse Events|Totals|
 |---|---|---|---|
@@ -18,11 +18,14 @@ Or
 |All other Drugs|N21|N22|N2.|
 |Totals|N.1|N.2|N..|
 
-#Quick Start - How it Works
-Run everything from your code as a call to %disproportionality.
-Alternatively, you could run %EBGM alone rather than through %disproportionality.
-You will need your data in the form of 2x2 tables for each drug/event combination
-These 2x2 tables can be calculated by first running %create2x2 or %create2x2fromcases
+Sidebar or Drug and Event variables:
+> For the purpose of this writeup I am using the terms *Drug* and *Event* as those are the most common terms for this type of work.  For the calculations you can just as easily replace *Drug* with your entity of interest such as a medical device or a procedure.  Also, *Event* could be any categorical information you are analyzing with *Drug*.  For instance, *Event* could be the combination of `Product + LOT`.
+
+##Quick Start - How it Works
+Run everything from your code as a call to `%disproportionality`. Alternatively, if you just want EBGM, you could run `%EBGM` alone rather than through %disproportionality.
+
+You will need your data in the form of 2x2 tables for each drug/event combination.
+These 2x2 tables can be calculated by first running `%create2x2` or `%create2x2fromcases`
 * %create2x2 - This takes a table of the form
 
 |Drug|Event|Nij|
@@ -48,10 +51,10 @@ and creates
 |Case|Drug|Event|N11|N12|N21|N22|
 |---|---|---|---|---|---|---|
 
-where each row is a case/event combination and the Nij are based on HERE MORE
+where each row is a case/drug/event combination and the *Nij* are based on HERE MORE
 
-#Details
-##Cases versus Events
+##Details
+###Cases versus Events
 The distinction between the %create2x2 and %create2x2fromcases macros is very important.
 MORE DOCUMENTATION HERE TO EXPLAIN BIAS CAUSED BY INCLUDING ALL DRUG/EVENT COMBOS FROM A SINGLE CASE INDEPENDENTLY
 
@@ -76,7 +79,7 @@ Example datasets are provided:
 * \example input data\textminedcases_train.sas7bdat
 * \example input data\textminedcases_transaction.sas7bdat
 
-#/Macros
+##/Macros
 * %create2x2 - uses input data where each row represents a drug/event combination
   * converts Drug/Event/N11 into Drug/Event/N11/N12/N22/N21
 * %cases_to_caserows - converts Case/Drug/Event (where a case can have more than one row) to Case/Drug/Events (where Events is a space delimited list)
@@ -91,23 +94,35 @@ list=WIDE - skips conversion of case list in multiple rows to single row (%cases
   * Macro that uses Proc MCMC to estimate parameters and then calculates EBGM metrics
   * This macro can be run alone or requested through %disproportionality
 
-#Call Tree
+##Call Tree
 * %create2x2
 * %create2x2fromcases
   * %cases_to_caserows (can also be used standalone)
 * %disproportionality
   * %ebgm (can also be used standalone)
 
-#Simulating Cases
-* \example input data\simulating cases\simulate_cases.sas
-  * see notes in the simulate_cases.sas file
-	  * COMPLETE AND DOCUMENT
-		* creates the requested number of cases from the distributions of drugs and drug/event combination found in \example input data\drug_event_example.sas7bdat
-		* This has already been used to create 10000 cases that can be found in \example input data\sample_cases.sas7bdat and \example input data\sample_case_rows.sas7bdat
+##Sample Data
+This repository comes with sample data for running the code in the [`/example input data`](./example input data/):
+*`drug_event_example.sas7bdat` a coded dataset created from a real adverse event database
 
-#Text Mining for groups of events
+|DrugName|EventName|Nij|
+|---|---|---|
+
+> * `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more captital letters
+* `EventName` is a coded value for a adverse event of the form `EventX` where `X` is a series of 1 or more capital letters
+* `Nij` is the count of occurences for the combination of `DrugName` and `EventName` - this is the N11 value
+
+*`sample_case_rows.sas7bdat`
+*`sample_cases.sas7bdat`
+*`textminedcases_train.sas7bdat` - MORE TO COME
+*`textminedcases_transaction.sas7bdat` - MORE TO COME
+
+###Simulating Sample Data
+For more information about how the Sample Data was created and how to create more samples visit [`/example input data/simulating cases`](./example input data/simulating cases/). 
+
+##Text Mining for groups of events
 See notes in "Text Mining Event Combinations Example.sas"
 	
 	
-#Data Structure
+##Data Structure
 Needs documenting
