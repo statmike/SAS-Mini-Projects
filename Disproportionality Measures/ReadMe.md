@@ -126,9 +126,10 @@ This repository comes with sample data for running the code in the [`/example in
   |Case_N|DrugName|EventName|
   |---|---|---|
 
-> * `Case_N` is an indentifier for a unique adverse event case
-* `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more captital letters
-* `EventName` is a coded value for a adverse event of the form `EventX` where `X` is a series of 1 or more capital letters
+>
+    * `Case_N` is an indentifier for a unique adverse event case
+    * `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more captital letters
+    * `EventName` is a coded value for a adverse event of the form `EventX` where `X` is a series of 1 or more capital letters
 
 * `textminedcases_train.sas7bdat` - MORE TO COME
 * `textminedcases_transaction.sas7bdat` - MORE TO COME
