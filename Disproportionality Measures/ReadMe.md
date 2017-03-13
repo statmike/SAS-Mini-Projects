@@ -28,30 +28,30 @@ You will need your data in the form of 2x2 tables for each drug/event combinatio
 These 2x2 tables can be calculated by first running `%create2x2` or `%create2x2fromcases`
 * %create2x2 - This takes a table of the form
 
-|Drug|Event|Nij|
-|---|---|---|
+  |Drug|Event|Nij|
+  |---|---|---|
 
-and creates
+  and creates
 
-|Drug|Event|N11|N12|N21|N22|
-|---|---|---|---|---|---|
+  |Drug|Event|N11|N12|N21|N22|
+  |---|---|---|---|---|---|
 
 * %create2x2fromcases - This takes a table of the form (shape=LONG) with one row per Case and Event
 
-|Case|Drug|Event|
-|---|---|---|
+  |Case|Drug|Event|
+  |---|---|---|
 
-or a table of the form (shape=WIDE) with one row per Case and an Events column with a delimited list of unique Events during the Case
+  or a table of the form (shape=WIDE) with one row per Case and an Events column with a delimited list of unique Events during the Case
 
-|Case|Drug|Events|
-|---|---|---|
+  |Case|Drug|Events|
+  |---|---|---|
 
-and creates
+  and creates
 
-|Case|Drug|Event|N11|N12|N21|N22|
-|---|---|---|---|---|---|---|
+  |Case|Drug|Event|N11|N12|N21|N22|
+  |---|---|---|---|---|---|---|
 
-where each row is a case/drug/event combination and the *Nij* are based on HERE MORE
+  where each row is a case/drug/event combination and the *Nij* are based on HERE MORE
 
 ##Details
 ###Cases versus Events
@@ -108,18 +108,18 @@ This repository comes with sample data for running the code in the [`/example in
   |DrugName|EventName|Nij|
   |---|---|---|
 
-> * `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more captital letters
-* `EventName` is a coded value for a adverse event of the form `EventX` where `X` is a series of 1 or more capital letters
-* `Nij` is the count of occurences for the combination of `DrugName` and `EventName` - this is the `N11` value
+    * `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more captital letters
+    * `EventName` is a coded value for a adverse event of the form `EventX` where `X` is a series of 1 or more capital letters
+    * `Nij` is the count of occurences for the combination of `DrugName` and `EventName` - this is the `N11` value
 
 * `sample_case_rows.sas7bdat` is a 1 row per case file with 10,000 cases
 
   |Case_N|DrugName|Events|
   |---|---|---|
 
-> * `Case_N` is an indentifier for a unique adverse event case
-* `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more capital letters
-* `Events` is a string of 1 or more space delimittted coded values for adverse events of the form `EventX` where `X` is a series of 1 or more capital letters
+    * `Case_N` is an indentifier for a unique adverse event case
+    * `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more capital letters
+    * `Events` is a string of 1 or more space delimittted coded values for adverse events of the form `EventX` where `X` is a series of 1 or more capital letters
 
 * `sample_cases.sas7bdat` is long version of `sample_case_rows.sas7bdat` where each `Event` string has been parsed into a single row for each `EventName` for a total of 31,451 drug/event occurences (reports).
 
