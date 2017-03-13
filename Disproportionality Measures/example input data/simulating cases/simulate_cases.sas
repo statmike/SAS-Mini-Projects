@@ -1,4 +1,5 @@
-/* this file contains the code, including local macros, to create a simulated dataset with cases of adverse events
+/* 
+	this file contains the code, including local macros, to create a simulated dataset with cases of adverse events
 	
 	This file has already be used to create 10,000 cases and those files can be found in:
 		C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\example input data\
