@@ -103,19 +103,27 @@ list=WIDE - skips conversion of case list in multiple rows to single row (%cases
 
 ##Sample Data
 This repository comes with sample data for running the code in the [`/example input data`](./example input data/):
-*`drug_event_example.sas7bdat` a coded dataset created from a real adverse event database
+* `drug_event_example.sas7bdat` is a coded dataset created from a real adverse event database with 385,734 drug/event combinations
 
 |DrugName|EventName|Nij|
 |---|---|---|
 
 > * `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more captital letters
 * `EventName` is a coded value for a adverse event of the form `EventX` where `X` is a series of 1 or more capital letters
-* `Nij` is the count of occurences for the combination of `DrugName` and `EventName` - this is the N11 value
+* `Nij` is the count of occurences for the combination of `DrugName` and `EventName` - this is the `N11` value
 
-*`sample_case_rows.sas7bdat`
-*`sample_cases.sas7bdat`
-*`textminedcases_train.sas7bdat` - MORE TO COME
-*`textminedcases_transaction.sas7bdat` - MORE TO COME
+* `sample_case_rows.sas7bdat` is a 1 row per case file with 10,000 cases
+
+|Case_N|DrugName|Events|
+|---|---|---|
+
+> * `Case_N` is an indentifier for a unique adverse event case
+* `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more capital letters
+* `Events` is a string of 1 or more space delimittted coded values for adverse events of the form `EventX` where `X` is a series of 1 or more capital letters
+
+* `sample_cases.sas7bdat`
+* `textminedcases_train.sas7bdat` - MORE TO COME
+* `textminedcases_transaction.sas7bdat` - MORE TO COME
 
 ###Simulating Sample Data
 For more information about how the Sample Data was created and how to create more samples visit [`/example input data/simulating cases`](./example input data/simulating cases/). 
