@@ -80,9 +80,9 @@ At this point in a project the code editing of macros is complete.  The next ste
 
 To make setting up autocall locations easy across all of my projects I have a macro that takes advantage how I organize my SAS projects.  My production projects are all in a folder called "SAS Projects".  Sub-folders within this are named for each individual project.  Within these project folders I create my `/Macros` folder.  
 
-You can set sasautos for your system by editing the 'sasv9.cfg' file found in `!sasroot\nls\en\sasv9.cfg`.
+You can set sasautos for your *system* by editing the 'sasv9.cfg' file found in `!sasroot\nls\en\sasv9.cfg`.
 
-You can set sasautos for a user by editing the `autoexec.sas` file to include a line like this:
+You can set sasautos for a *user* by editing the `autoexec.sas` file to include a line like this:
 
 ```sas
 options sasautos=("newdir" "newdir2" "newdir3" SASAUTOS);
@@ -94,14 +94,13 @@ Before doing this you may want to just define the sasautos for your session.  Th
   * This adds the input directory to the SASAUTOS definition using `Options SASAUTOS=`.  With the option `SUB=Y` it will find all subfolders (including the provided folder) named `/Macros` (any case) and add these to SASAUTOS.  Check the log when execution is done and you will find the new value of SASAUTOS listed.
 
 Sidebar on `autoexec.sas` edits for including all macros in your projects directory:
- >If you store all code for your finished (or mature) projects in a folder like `C:\PROJECTS` then you can use the `%define_autocalls` macro along with `options sasautos=` in your `autoexec.exe` to make sure all folders named `/Macros` (any case) are included in every SAS session.
- >Add these lines to the users `autoexec.sas` file:
+ > If you store all code for your finished (or mature) projects in a folder like `C:\PROJECTS` then you can use the `%define_autocalls` macro along with `options sasautos=` in your `autoexec.exe` to make sure all folders named `/Macros` (any case) are included in every SAS session.
+ > Add these lines to the users `autoexec.sas` file:
  
- >
- ```sas
+ > ```sas
 options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAUTOS);
 %define_autocalls(C:\PROJECTS,SUB=Y);
->```
+```
 > The first step adds the folder containing the `%define_autocalls` macro and the second line uses that macro on the full folder structure.
 	
 ### For (4): Project hardening
