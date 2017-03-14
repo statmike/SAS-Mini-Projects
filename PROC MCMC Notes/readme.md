@@ -1,4 +1,4 @@
-# Links for PROC MCMC Over Versions
+# PROC MCMC Over Versions
 *	9.2
     *	[SAS/STAT](http://support.sas.com/documentation/onlinedoc/stat/index.html#statprev)
     *	[MCMC is NEW](http://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_whatsnew_sect024.htm)
@@ -45,4 +45,28 @@
         *	[MCMC What’s New](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_whatsnew_sect013.htm&locale=en)
             *	The new NORMALCAR option in the RANDOM statement specifies a spatial conditional autoregressive (CAR) prior that can be used to model spatial correlations among sites and neighbors.
 
-# Very Important Sections of the Documentation – These are kept up to date for the most recent version
+# Very Important Sections of the Documentation (These are kept up to date for the most recent version)
+*	[Introduction to Bayesian Analysis Procedures]()
+*	[Overview: PROC MCMC]()
+*	[Getting Started]()
+*	[Details]()
+    *	[How PROC MCMC Works]()
+    *	[Blocking of Parameters]()
+    *	[Create Design Matrix]()
+    *	[Regenerating Diagnostics Plots]()
+    *	[Caterpillar Plot]()
+    *	[Autocall Macros For Postprocessing]()
+    *	[Computational Resources]()
+    *	[Displayed Output]()
+*	[Examples]()
+
+# Key Presentations
+*	[The RANDOM Statement and More: Moving On with PROC MCMC]
+*	[An Introduction to Bayesian Analysis with SAS/STAT® Software]
+*	[Missing No More: Using the MCMC Procedure to Model Missing Data]
+*	[Bayesian Modeling Using the MCMC Procedure]
+*	[Getting Started with the MCMC Procedure]
+*	[MCMC in SAS®: From Scratch or by PROC]
+
+# SAS Training on MCMC and other PROCs with Bayesian options
+*	[Bayesian Analyses Using SAS]
