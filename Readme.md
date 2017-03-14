@@ -36,7 +36,6 @@ options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAU
 ```
 
 ## Projects
-* [`Disproportionality Measures`] (./Disproportionality Measures): PRR, RR, IC, EBGM (MGPS) and more
-* [`Organizing Macros`](./Organizing Macros): workflow and macros for macros
-* [`PROC MCMC Notes`](./PROC MCMC Notes): Key links and notes for all versions of PROC MCMC
-
+* [Disproportionality Measures](./Disproportionality%20%Measures): PRR, RR, IC, EBGM (MGPS) and more
+* [Organizing Macros](./Organizing%20%Macros): workflow and macros for macros
+* [PROC MCMC Notes](./PROC%20%MCMC%20%Notes): Key links and notes for all versions of PROC MCMC
