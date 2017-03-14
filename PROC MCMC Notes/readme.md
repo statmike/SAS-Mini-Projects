@@ -46,9 +46,9 @@
             *	The new NORMALCAR option in the RANDOM statement specifies a spatial conditional autoregressive (CAR) prior that can be used to model spatial correlations among sites and neighbors.
 
 # Very Important Sections of the Documentation (These are kept up to date for the most recent version)
-*	[Introduction to Bayesian Analysis Procedures](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_introbayes_toc.htm&locale=en
-*	[Overview: PROC MCMC](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_overview.htm&locale=en
-*	[Getting Started](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_gettingstarted.htm&locale=en
+*	[Introduction to Bayesian Analysis Procedures](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_introbayes_toc.htm&locale=en)
+*	[Overview: PROC MCMC](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_overview.htm&locale=en)
+*	[Getting Started](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_gettingstarted.htm&locale=en)
 *	[Details]()
     *	[How PROC MCMC Works](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details01.htm&locale=en)
     *	[Blocking of Parameters](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details05.htm&locale=en)
@@ -58,15 +58,15 @@
     *	[Autocall Macros For Postprocessing](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details50.htm&locale=en)
     *	[Computational Resources](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details70.htm&locale=en)
     *	[Displayed Output](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details71.htm&locale=en)
-*	[Examples](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_examples.htm&locale=en
+*	[Examples](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_examples.htm&locale=en)
 
 # Key Presentations
-*	[The RANDOM Statement and More: Moving On with PROC MCMC](https://support.sas.com/resources/papers/proceedings11/334-2011.pdf
-*	[An Introduction to Bayesian Analysis with SAS/STAT® Software](https://support.sas.com/resources/papers/proceedings14/SAS400-2014.pdf
-*	[Missing No More: Using the MCMC Procedure to Model Missing Data](https://support.sas.com/resources/papers/proceedings13/436-2013.pdf
-*	[Bayesian Modeling Using the MCMC Procedure](https://support.sas.com/resources/papers/proceedings09/257-2009.pdf
-*	[Getting Started with the MCMC Procedure](https://support.sas.com/rnd/app/stat/papers/2014/gettingstartedMCMC2014.pdf
-*	[MCMC in SAS®: From Scratch or by PROC](http://support.sas.com/resources/papers/proceedings16/9080-2016.pdf
+*	[The RANDOM Statement and More: Moving On with PROC MCMC](https://support.sas.com/resources/papers/proceedings11/334-2011.pdf)
+*	[An Introduction to Bayesian Analysis with SAS/STAT® Software](https://support.sas.com/resources/papers/proceedings14/SAS400-2014.pdf)
+*	[Missing No More: Using the MCMC Procedure to Model Missing Data](https://support.sas.com/resources/papers/proceedings13/436-2013.pdf)
+*	[Bayesian Modeling Using the MCMC Procedure](https://support.sas.com/resources/papers/proceedings09/257-2009.pdf)
+*	[Getting Started with the MCMC Procedure](https://support.sas.com/rnd/app/stat/papers/2014/gettingstartedMCMC2014.pdf)
+*	[MCMC in SAS®: From Scratch or by PROC](http://support.sas.com/resources/papers/proceedings16/9080-2016.pdf)
 
 # SAS Training on MCMC and other PROCs with Bayesian options
-*	[Bayesian Analyses Using SAS](https://support.sas.com/edu/schedules.html?ctry=us&crs=STBAY
+*	[Bayesian Analyses Using SAS](https://support.sas.com/edu/schedules.html?ctry=us&crs=STBAY)
