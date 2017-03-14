@@ -1,7 +1,7 @@
-#Organizing Macros
+# Organizing Macros
 The goal of this project is to create code and macros that make macros easy to deploy in your SAS environment across the different scopes of macro usage in projects.
 
-##Quick Start:
+## Quick Start:
 
 * [`/Macros`](./Macros)
   * [`%include_folder`](./Macros/include_folder.sas)
@@ -31,7 +31,7 @@ The goal of this project is to create code and macros that make macros easy to d
 * Examples:
   * Review code in [`example runs.sas`](example runs.sas)
 
-##Background
+## Background
 Good information for using and managing SAS macros is found in the SAS documentation:
 
 * [Overall Link](https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#bookinfo.htm)
@@ -39,7 +39,7 @@ Good information for using and managing SAS macros is found in the SAS documenta
   * [Efficiency and Portability](https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p04s69a9d2x7cnn1iukqe9zn4bo5.htm)
   * [How macros processing works](https://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p0znr2zp0ubdzjn10wmhw0y2ef1q.htm)
 	
-##Overview of Macro Usage
+## Overview of Macro Usage
 My view of using macros is that they have different scopes depending on purpose.  Macros are used in several modes and need different levels of flexibility depending on the use:
 
 1. Ad-hoc coding
@@ -48,12 +48,12 @@ My view of using macros is that they have different scopes depending on purpose.
 4. Project hardening
 
 	
-###For (1): Ad-hoc coding
+### For (1): Ad-hoc coding
 With ad-hoc coding, macros have a short span of use.  The typical practice is to start by putting macros within the code file.  A best practice is keeping macro definitions near the top of the code file.
 	
 As the number of macros and the length of macros grow it can be a good next step to move macros to a secondary file and then `%include('path here')` the macros file within the main code file.  This will include all the macro code during each execution of the main code.  This method allows the macros to easily be edited and tested.  The macros will recompile at each job submission and catch any changes from edits.
 	
-###For (2): Project development
+### For (2): Project development
 During project development you need the flexibility of ad-hoc coding in (1) but with an end goal of deploying the final macros.  In this case, my goal is to eventually deploy macros in an autocall library.
 
 Sidebar on autocall library usage:
@@ -75,7 +75,7 @@ When the number of macros increases, it can be handy to submit all the contents 
 
 These macros can also be helpful for creating test versions of your overall project that you want to share with others to test.
 	
-###For (3): Project deployment
+### For (3): Project deployment
 At this point in a project the code editing of macros is complete.  The next step is defining and setting up the macros for autocall.  To do this you either store the macros in an existing autocall folder or you setup the location of the macros within the project as an autocall location.  I prefer the later method as it is easier to organize macros and track them.  
 
 To make setting up autocall locations easy across all of my projects I have a macro that takes advantage how I organize my SAS projects.  My production projects are all in a folder called "SAS Projects".  Sub-folders within this are named for each individual project.  Within these project folders I create my `/Macros` folder.  
@@ -83,6 +83,7 @@ To make setting up autocall locations easy across all of my projects I have a ma
 You can set sasautos for your system by editing the 'sasv9.cfg' file found in `!sasroot\nls\en\sasv9.cfg`.
 
 You can set sasautos for a user by editing the `autoexec.sas` file to include a line like this:
+
 ```sas
 options sasautos=("newdir" "newdir2" "newdir3" SASAUTOS);
 ```
@@ -95,13 +96,15 @@ Before doing this you may want to just define the sasautos for your session.  Th
 Sidebar on `autoexec.sas` edits for including all macros in your projects directory:
  >If you store all code for your finished (or mature) projects in a folder like `C:\PROJECTS` then you can use the `%define_autocalls` macro along with `options sasautos=` in your `autoexec.exe` to make sure all folders named `/Macros` (any case) are included in every SAS session.
  >Add these lines to the users `autoexec.sas` file:
- >```sas
+ 
+ >
+ ```sas
 options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAUTOS);
 %define_autocalls(C:\PROJECTS,SUB=Y);
 >```
 > The first step adds the folder containing the `%define_autocalls` macro and the second line uses that macro on the full folder structure.
 	
-###For (4): Project hardening
+### For (4): Project hardening
 Hardening is going the next step in the process of deploying reusable code.  In this case I am referring to precompiling macros and securing the contents of macros.  Precompiling allows faster execution as each session does not need to read and compile the macro code.  Securing protects the contents of the macro and keeps them from being edited.  You can also prevent macro code from showing up in logs, even when `Options MPRINT;` is used.  This can be very useful when you do not want users going around a macro by creating a local version with edits to override the production version.  It is also a good strategy when you want to protect potential intellectual property while distributing a macro.
 
 * [Storing Compiled Macros] (http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#n0sjezyl65z1cpn1b6mqfo8115h2.htm)
