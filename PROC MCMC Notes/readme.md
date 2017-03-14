@@ -49,7 +49,7 @@
 *	[Introduction to Bayesian Analysis Procedures](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_introbayes_toc.htm&locale=en)
 *	[Overview: PROC MCMC](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_overview.htm&locale=en)
 *	[Getting Started](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_gettingstarted.htm&locale=en)
-*	[Details]()
+*	[Details](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details.htm&locale=en)
     *	[How PROC MCMC Works](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details01.htm&locale=en)
     *	[Blocking of Parameters](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details05.htm&locale=en)
     *	[Create Design Matrix](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details41.htm&locale=en)
