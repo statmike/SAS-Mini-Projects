@@ -94,17 +94,17 @@ Before doing this you may want to just define the sasautos for your session.  Th
   * This adds the input directory to the SASAUTOS definition using `Options SASAUTOS=`.  With the option `SUB=Y` it will find all subfolders (including the provided folder) named `/Macros` (any case) and add these to SASAUTOS.  Check the log when execution is done and you will find the new value of SASAUTOS listed.
 
 Sidebar on `autoexec.sas` edits for including all macros in your projects directory:
- > If you store all code for your finished (or mature) projects in a folder like `C:\PROJECTS` then you can use the `%define_autocalls` macro along with `options sasautos=` in your `autoexec.exe` to make sure all folders named `/Macros` (any case) are included in every SAS session.
- > Add these lines to the users `autoexec.sas` file:
+  > If you store all code for your finished (or mature) projects in a folder like `C:\PROJECTS` then you can use the `%define_autocalls` macro along with `options sasautos=` in your `autoexec.exe` to make sure all folders named `/Macros` (any case) are included in every SAS session.
+  > Add these lines to the users `autoexec.sas` file:
  
- > ```sas
+```sas
 options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAUTOS);
 %define_autocalls(C:\PROJECTS,SUB=Y);
 ```
-> The first step adds the folder containing the `%define_autocalls` macro and the second line uses that macro on the full folder structure.
+  > The first step adds the folder containing the `%define_autocalls` macro and the second line uses that macro on the full folder structure.
 	
 ### For (4): Project hardening
 Hardening is going the next step in the process of deploying reusable code.  In this case I am referring to precompiling macros and securing the contents of macros.  Precompiling allows faster execution as each session does not need to read and compile the macro code.  Securing protects the contents of the macro and keeps them from being edited.  You can also prevent macro code from showing up in logs, even when `Options MPRINT;` is used.  This can be very useful when you do not want users going around a macro by creating a local version with edits to override the production version.  It is also a good strategy when you want to protect potential intellectual property while distributing a macro.
 
-* [Storing Compiled Macros] (http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#n0sjezyl65z1cpn1b6mqfo8115h2.htm)
-* [Securing Macros] (http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p1nypovnwon4uyn159rst8pgzqrl.htm)
+* [Storing Compiled Macros](http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#n0sjezyl65z1cpn1b6mqfo8115h2.htm)
+* [Securing Macros](http://support.sas.com/documentation/cdl/en/mcrolref/67912/HTML/default/viewer.htm#p1nypovnwon4uyn159rst8pgzqrl.htm)
