@@ -76,3 +76,8 @@
 
 ## SAS Classroom Training
 *	[Bayesian Analyses Using SAS](https://support.sas.com/edu/schedules.html?ctry=us&crs=STBAY)
+
+## My Favorite Bayesian Book for Foundational Skills
+*  [Doing Bayesian Data Analysis, Second Edition: A Tutorial with R, JAGS, and Stan](https://sites.google.com/site/doingbayesiandataanalysis/purchase)
+   *  Book Cover
+   ![Image of DBDA Bookcover](https://9b8e0032-a-62cb3a1a-s-sites.googlegroups.com/site/doingbayesiandataanalysis/what-s-new-in-2nd-ed/CoverDBDA2E-FrontOnly-600wide.png?attachauth=ANoY7cpkCotcE4ULP-HhvTJ0t0gLh2DeWMZVWVifu5VeYU27FpBgDJoJOXu7D8hgn2GWPgUkZ5Gq6E7sxLDJgmgBNwiUyX2yJJot7hm70syr6hx1yUkpEcGCZVl3MLTKElNgp5_xpK451n11z8Np-EFJKyR2LMZEUEiND1CuhjiEDmsO4bS6vEUsnk9SeLnHXfONPpzP3XOyiIdDvFqr1W6ho0RuEGDfdBvICE3HdRO8dmFfNtcZXRjPYayWMuZPgr3XBKJj-FbyLcGiA0BtExnrfkynoo_wpgDrYrRmTYdNldZaPPZPhB4%3D&attredirects=0)
