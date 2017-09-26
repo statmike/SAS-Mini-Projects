@@ -52,21 +52,25 @@
         *	[SAS/STAT](http://support.sas.com/documentation/onlinedoc/stat/index.html#stat142)
         *	[MCMC What’s New](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_whatsnew_sect013.htm&locale=en)
             *	The new NORMALCAR option in the RANDOM statement specifies a spatial conditional autoregressive (CAR) prior that can be used to model spatial correlations among sites and neighbors.
+    * 14.3
+        * [SAS/STAT](http://support.sas.com/documentation/onlinedoc/stat/index.html#stat143)
+        * [MCMC What's New](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_whatsnew_sect017.htm&locale=en)
+            * The CMPTMODEL statement fits compartment models in pharmacokinetic analysis.  You can now model missing responses in the presence of missing covariates.
 
 ## Very Important Sections of the Documentation for the Latest Release
-*	[Introduction to Bayesian Analysis Procedures](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_introbayes_toc.htm&locale=en)
-*	[Overview: PROC MCMC](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_overview.htm&locale=en)
-*	[Getting Started](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_gettingstarted.htm&locale=en)
+*	[Introduction to Bayesian Analysis Procedures](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_introbayes_toc.htm&locale=en)
+*	[Overview: PROC MCMC](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_mcmc_overview.htm&locale=en)
+*	[Getting Started](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_mcmc_gettingstarted.htm&locale=en)
 *	[Details](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details.htm&locale=en)
-    *	[How PROC MCMC Works](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details01.htm&locale=en)
-    *	[Blocking of Parameters](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details05.htm&locale=en)
-    *	[Create Design Matrix](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details41.htm&locale=en)
-    *	[Regenerating Diagnostics Plots](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details48.htm&locale=en)
-    *	[Caterpillar Plot](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details49.htm&locale=en)
-    *	[Autocall Macros For Postprocessing](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details50.htm&locale=en)
-    *	[Computational Resources](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details70.htm&locale=en)
-    *	[Displayed Output](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_details71.htm&locale=en)
-*	[Examples](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_mcmc_examples.htm&locale=en)
+    *	[How PROC MCMC Works](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_mcmc_details01.htm&locale=en)
+    *	[Blocking of Parameters](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_mcmc_details05.htm&locale=en)
+    *	[Create Design Matrix](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_mcmc_details41.htm&locale=en)
+    *	[Regenerating Diagnostics Plots](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_mcmc_details48.htm&locale=en)
+    *	[Caterpillar Plot](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_mcmc_details49.htm&locale=en)
+    *	[Autocall Macros For Postprocessing](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_mcmc_details50.htm&locale=en)
+    *	[Computational Resources](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_mcmc_details70.htm&locale=en)
+    *	[Displayed Output](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_mcmc_details71.htm&locale=en)
+*	[Examples](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_mcmc_examples.htm&locale=en)
 
 ## Key Presentations
 *	[The RANDOM Statement and More: Moving On with PROC MCMC](https://support.sas.com/resources/papers/proceedings11/334-2011.pdf)
