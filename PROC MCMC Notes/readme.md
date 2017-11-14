@@ -81,6 +81,7 @@
 *	[Bayesian Modeling Using the MCMC Procedure](https://support.sas.com/resources/papers/proceedings09/257-2009.pdf)
 *	[Getting Started with the MCMC Procedure](https://support.sas.com/rnd/app/stat/papers/2014/gettingstartedMCMC2014.pdf)
 *	[MCMC in SAS®: From Scratch or by PROC](http://support.sas.com/resources/papers/proceedings16/9080-2016.pdf)
+*  [Advanced Hierarchical Modeling with the MCMC Procedure](https://support.sas.com/resources/papers/proceedings17/SAS0478-2017.pdf)
 
 ## SAS Classroom Training
 *	[Bayesian Analyses Using SAS](https://support.sas.com/edu/schedules.html?ctry=us&crs=STBAY)
