@@ -39,5 +39,5 @@ options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAU
 * [Disproportionality Measures](./Disproportionality%20Measures): PRR, RR, IC, EBGM (MGPS) and more
 * [Organizing Macros](./Organizing%20Macros): workflow and macros for macros
 * [PROC MCMC Notes](./PROC%20MCMC%20Notes): Key links and notes for all versions of PROC MCMC
-* [Log Parsing](): Coming Soon! How to examine logs for code efficiency opportunities
-* [Parallel Computing in SAS](): Coming Soon! How to create parallelism in your code
+* [Log Parsing](./Log%20Parsing): Coming Soon! How to examine logs for code efficiency opportunities
+* [Parallel Computing in SAS](./Parallelism): Coming Soon! How to create parallelism in your code
