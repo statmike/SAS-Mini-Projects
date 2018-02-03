@@ -90,7 +90,7 @@
 *  [Doing Bayesian Data Analysis, Second Edition: A Tutorial with R, JAGS, and Stan](https://sites.google.com/site/doingbayesiandataanalysis/purchase)
 *  ![Image of DBDA Bookcover](https://9b8e0032-a-62cb3a1a-s-sites.googlegroups.com/site/doingbayesiandataanalysis/what-s-new-in-2nd-ed/CoverDBDA2E-FrontOnly-600wide.png?attachauth=ANoY7cpkCotcE4ULP-HhvTJ0t0gLh2DeWMZVWVifu5VeYU27FpBgDJoJOXu7D8hgn2GWPgUkZ5Gq6E7sxLDJgmgBNwiUyX2yJJot7hm70syr6hx1yUkpEcGCZVl3MLTKElNgp5_xpK451n11z8Np-EFJKyR2LMZEUEiND1CuhjiEDmsO4bS6vEUsnk9SeLnHXfONPpzP3XOyiIdDvFqr1W6ho0RuEGDfdBvICE3HdRO8dmFfNtcZXRjPYayWMuZPgr3XBKJj-FbyLcGiA0BtExnrfkynoo_wpgDrYrRmTYdNldZaPPZPhB4%3D&attredirects=0)
 
-![Software the Book Covers](https://github.com/statmike/SAS-Mini-Projects/blob/master/PROC%20MCMC%20Notes/image1.JPG)
+![Software the Book Covers](https://github.com/statmike/SAS-Mini-Projects/blob/master/PROC%20MCMC%20Notes/image1.JPG){:height="50%" width="50%"}
 
 ## Good Bayesian Blogs
 *  [Count Bayesie - Probably a Probability Blog](https://www.countbayesie.com)
