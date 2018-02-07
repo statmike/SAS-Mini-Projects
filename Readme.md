@@ -41,5 +41,5 @@ options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAU
 * [PROC MCMC Notes](./PROC%20MCMC%20Notes): Key links and notes for all versions of PROC MCMC
 * [Log Parsing](./Log%20Parsing): Coming Soon! How to examine logs for code efficiency opportunities
 * [Parallel Computing in SAS](./Parallelism): Coming Soon! How to create parallelism in your code
-* [ODS Notes and Default SAS Output Across Versions](./ODS notes): Coming Soon!
+* [ODS Notes and Default SAS Output Across Versions](./ODS%20notes): Coming Soon!
 
