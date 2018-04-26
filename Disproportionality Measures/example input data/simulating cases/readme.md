@@ -24,9 +24,10 @@ The file `drug_event_example.sas7bdat` is a coded dataset created from a real ad
 
 |DrugName|EventName|Nij|
 |---|---|---|
-    * `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more captital letters
-    * `EventName` is a coded value for a adverse event of the form `EventX` where `X` is a series of 1 or more capital letters
-    * `Nij` is the count of occurences for the combination of `DrugName` and `EventName` - this is the `N11` value
+
+   * `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more captital letters
+   * `EventName` is a coded value for a adverse event of the form `EventX` where `X` is a series of 1 or more capital letters
+   * `Nij` is the count of occurences for the combination of `DrugName` and `EventName` - this is the `N11` value
 
 ---
 
@@ -35,7 +36,7 @@ The following summarizes each example and the file formats for the output.  A ta
 * Example 1 (EX1): each case is a single pair with one drug and one event
   * `ex1.sas7bdat`
 
->|Case_N|DrugName|EventName|
+|Case_N|DrugName|EventName|
 |---|---|---|
 |1|DrugCJD|EventBBH|
 |2|DrugEFG|EventHI|
@@ -46,7 +47,7 @@ The following summarizes each example and the file formats for the output.  A ta
 * Example 2 (EX2): each case is made up of a single drug and a group of one or more events
   * `ex2_long.sas7bdat`
 
->|Case_N|DrugName|EventName|
+|Case_N|DrugName|EventName|
 |---|---|---|
 |1|DrugCJD|EventBBH|
 |1|DrugCJD|EventBJI|
@@ -72,7 +73,7 @@ The following summarizes each example and the file formats for the output.  A ta
 
   * `ex2.sas7bdat`
 
->|Case_N|DrugName|Events|
+|Case_N|DrugName|Events|
 |---|---|---|
 |1|DrugCJD|EventBBH EventBJI
 |2|DrugEFG|EventCID EventEAA
@@ -84,7 +85,7 @@ The following summarizes each example and the file formats for the output.  A ta
 * Example 3 (EX3): each case is made up of a group of one or more drugs and a single event
   * `ex3_long.sas7bdat`
 
->|Case_N|DrugName|EventName|
+|Case_N|DrugName|EventName|
 |---|---|---|
 |1|DrugCJD|EventBBH
 |1|DrugEED|EventBBH
@@ -106,7 +107,7 @@ The following summarizes each example and the file formats for the output.  A ta
 
   * `ex3.sas7bdat`
 
->|Case_N|Drugs|EventName|
+|Case_N|Drugs|EventName|
 |---|---|---|
 |1|DrugCJD DrugEED|EventBBH|
 |2|DrugBAEE DrugBAGH DrugBBCF DrugEFG DrugHGB|EventHI|
@@ -117,7 +118,7 @@ The following summarizes each example and the file formats for the output.  A ta
 * Example 4 (EX4): each case is made up of a group of one or more drugs and a group of one or more events
   * `ex4.sas7bdat`
 
->|Case_N|Drugs|Events|
+|Case_N|Drugs|Events|
 |---|---|---|
 |1|DrugBCDD DrugCJD DrugCJD|EventBJI EventBBH EventBJI|
 |2|DrugEFG DrugEFG DrugFCH DrugIAG DrugIEE DrugJEC DrugJHF|EventCID EventEAA EventCID EventEAA EventCID EventCID EventEAA|
@@ -163,12 +164,12 @@ The examples all include 10,000 cases.  This run of the code took about 1 hour 4
   2. Run the second and third macros at the same time in separate `RSUBMIT` blocks
   ```SAS
   %add_events(core,EX1,1);
-	%add_events(core,EX2_LONG,-1);
+  %add_events(core,EX2_LONG,-1);
   ```
   3. Once Step 2 is finished, run the fourth and fifth macros at the same time in separate `RSUBMIT` blocks
   ```sas
   %add_drugs(EX1,EX3_LONG,-1);
-	%add_drugs(EX2_LONG,EX4_LONG,-1);
+  %add_drugs(EX2_LONG,EX4_LONG,-1);
   ```
 * Use `Proc FCMP`!  The macros `%add_events` and `%add_drugs` each cycle through each row of the input datasets.  For each row they run a series of `Procs` and `Data Steps`.  By storing this work in function that is created with `Proc FCMP` these could be simply called within a single data step and take advantage of the row level processing in the data step.
   * Once a `Proc FCMP` function is being used at the row level in a SAS data step you could further parallelize the operation:
