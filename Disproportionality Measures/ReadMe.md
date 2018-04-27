@@ -9,13 +9,13 @@
     * [`ebgm.sas`](./Macros/ebgm.sas)
       * caculates EBGM measures and adds them to the input table of drug/event pairs and 2x2 table data
   * **Data scenarios**
-    * The `example.sas` code has examples of running the macros with data in different scenarios.  These scenarios are covered in more detail in the `simulating cases` [readme](./simulating cases/readme.md) file
+    * The `example.sas` code has examples of running the macros with data in different scenarios.  These scenarios are covered in more detail in the `simulating cases` [readme](./simulating%20cases/readme.md) file
       * Example 1 (EX1): each case is a single pair with one drug and one event
       * Example 2 (EX2): each case is made up of a single drug and a group of one or more events
       * Example 3 (EX3): each case is made up of a group of one or more drugs and a single event
       * Example 4 (EX4): each case is made up of a group of one or more drugs and a group of one or more events
   * **Simulated Data**
-    * The `simulating cases` [readme](./simulating cases/readme.md) file covers the details of how the simulated adverse event datasets are created and how the macros within that code could be used to simulated additional scenarios. This includes simulating cases based on adverse event databases you have access to.
+    * The `simulating cases` [readme](./simulating%20cases/readme.md) file covers the details of how the simulated adverse event datasets are created and how the macros within that code could be used to simulated additional scenarios. This includes simulating cases based on adverse event databases you have access to.
 
 ---
 
