@@ -1,9 +1,9 @@
 /*
 Compute Summary Counts, Rates, and Signal Scores for PRR based on independence Model
-	This file expects the output of the %create2x2 macro.
+	This file expects the output of the %create2x2 macro - Prod_level, Event_Level, N11, N12, N21, N22
 	Inputs:
-		ds = dataset name that contains the prod_level, event_level as N11, N12, N21, N22 variables created by %create2x2
-		outds = output dataset name
+		inds = dataset name that contains the prod_level, event_level as N11, N12, N21, N22 variables created by %create2x2
+		outds = output dataset name - can be the same as inds
 		prod_level = the column with product or drug codes
 			you can use a column that stands for product_characteristic combinations like Product/LOT
 			Before feeding the macro, create a concatenation of the value you want to feed the macro
@@ -14,14 +14,14 @@ Compute Summary Counts, Rates, and Signal Scores for PRR based on independence M
 			Y = also run the %EBGM macro - this increases run time	
 */
 
-%macro disproportionality(ds,outds,prod_level,event_level,Z_alpha,EBGM=N);
+%macro disproportionality(inds,outds,prod_level,event_level,Z_alpha,EBGM=N);
 
 	/*******************************************************************
 	 * Section 1: Determine type of analysis: Stratification versus none                                          
 	 *******************************************************************/
-	proc sort data = &ds.; by &prod_level. &event_level.; run;
+	proc sort data = &inds.; by &prod_level. &event_level.; run;
 	data &outds.;
-		set &ds.; 
+		set &inds.; 
 		by &prod_level &event_level; 
 		
 		Prod_Total = sum(of N11, N12);
@@ -80,7 +80,7 @@ Compute Summary Counts, Rates, and Signal Scores for PRR based on independence M
 	RUN;
 	
 	%if &EBGM=Y %then %do;
-		%EBGM(&outds,&outds,DrugName,EventName);
+		%EBGM(&outds.,&outds.,&prod_level.,&event_level.);
 	%end;
 %mend disproportionality;
 

@@ -25,7 +25,7 @@
 	    RUN;
 	    
 	ods output PostSumInt = work.MCMC_PARMS;
-	proc mcmc data=&outds. seed=32259 nmc=10000 thin=5 propcov=quanew monitor=(Mix_p alpha1 alpha2 beta1 beta2);
+	proc mcmc data=&outds. seed=32259 nmc=10000 thin=5 nthread=6 propcov=quanew monitor=(Mix_p alpha1 alpha2 beta1 beta2);
 		parms Mix_p 0.3333 alpha1 .2 alpha2 2 beta1 .1 beta2 4;
 	
 		/**Generic gamma priors*/
@@ -47,6 +47,7 @@
 		call symput(parameter,mean);
 		call symput(trim(parameter)||'_std',StdDev);
 	run;
+	proc sql; drop table work.MCMC_PARMS; quit;
 	
 	data &outds.;
 		set &outds.;

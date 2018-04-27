@@ -1,4 +1,33 @@
-# Synopsis
+# How to Get Started:
+
+* [`examples.sas`](examples.sas) demonstrates running the **macros** for different **data scenarios** using **simulated data**:
+  * **Macros**
+    * [`create2x2`](./Macros/create2x2.sas)
+      * converts a file of adverse event cases into a dataset with drug/event pairs and the associated 2x2 table data (N11, N12, N21, N22)
+    * [`disproportionality.sas`](./Macros/disproportionality.sas)
+      * calculates many common disproportionality measures and adds them to the input table of drug/event pairs and 2x2 table data
+    * [`ebgm.sas`](./Macros/ebgm.sas)
+      * caculates EBGM measures and adds them to the input table of drug/event pairs and 2x2 table data
+  * **Data scenarios**
+    * The `example.sas` code has examples of running the macros with data in different scenarios.  These scenarios are covered in more detail in the `simulating cases` [readme](./simulating cases/readme.md) file
+      * Example 1 (EX1): each case is a single pair with one drug and one event
+      * Example 2 (EX2): each case is made up of a single drug and a group of one or more events
+      * Example 3 (EX3): each case is made up of a group of one or more drugs and a single event
+      * Example 4 (EX4): each case is made up of a group of one or more drugs and a group of one or more events
+  * **Simulated Data**
+    * The `simulating cases` [readme](./simulating cases/readme.md) file covers the details of how the simulated adverse event datasets are created and how the macros within that code could be used to simulated additional scenarios. This includes simulating cases based on adverse event databases you have access to.
+
+---
+
+# Updates needed below here
+
+---
+---
+---
+---
+---
+
+## Synopsis
 The code in this project is used to calculate disproportionality measures on data such as spontaneously reported adverse events.
 
 ## Background
@@ -62,7 +91,7 @@ MORE DOCUMENTATION HERE TO EXPLAIN BIAS CAUSED BY INCLUDING ALL DRUG/EVENT COMBO
 An example of running this code can be found in "run from here.sas"
 Example datasets are provided:
 * \example input data\drug_event_example.sas7bdat
-  * A typical input dataset with 1 row per drug/event combination that includes a frequency/count for that combination.  Columns: 
+  * A typical input dataset with 1 row per drug/event combination that includes a frequency/count for that combination.  Columns:
     * DrugName - Name of the drug (coded for the sample data but derived from real data for interpretation)
     * EventName - Name of the event (coded for the sample data but derived from real data for interpretation)
     * Nij - The count (frequency) for the row Drug/Event combination
@@ -134,11 +163,11 @@ This repository comes with sample data for running the code in the [`/example in
 * `textminedcases_transaction.sas7bdat` - MORE TO COME
 
 ### Simulating Sample Data
-For more information about how the *Sample Data* was created and how to create more samples visit [`/example input data/simulating cases`](./example input data/simulating cases/). 
+For more information about how the *Sample Data* was created and how to create more samples visit [`/example input data/simulating cases`](./example input data/simulating cases/).
 
 ## Text Mining for groups of events
 See notes in "Text Mining Event Combinations Example.sas"
-	
-	
+
+
 ## Data Structure
 Needs documenting

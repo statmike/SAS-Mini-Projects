@@ -20,7 +20,7 @@ The simulation code is used to create 4 different example scenarios for adverse 
 ---
 
 ### Input Data for Simulation
-The file `drug_event_example.sas7bdat` is a coded dataset created from a real adverse event database with 385,734 drug/event combinations
+The file `drug_event_example.sas7bdat` is a coded dataset created from a real adverse event database with 385,734 drug/event combinations.
 
 |DrugName|EventName|Nij|
 |---|---|---|
@@ -28,6 +28,8 @@ The file `drug_event_example.sas7bdat` is a coded dataset created from a real ad
    * `DrugName` is a coded value for a drug of the form `DrugX` where `X` is a series of 1 or more captital letters
    * `EventName` is a coded value for a adverse event of the form `EventX` where `X` is a series of 1 or more capital letters
    * `Nij` is the count of occurences for the combination of `DrugName` and `EventName` - this is the `N11` value
+
+**Rather than using the provided file, a similar file could be constructed from an adverse event database and used with this simulation code.**
 
 ---
 

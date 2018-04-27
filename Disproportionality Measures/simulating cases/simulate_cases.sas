@@ -269,7 +269,7 @@ options source notes;
 	the following has also been turned into a macro: /Macros/%cases_to_caserows
 */
 data EX2;
-	length Events $300.;
+	length Events $500.;
 		do until(last.Case_N);
 			set EX2_LONG;
 			by Case_N;
@@ -278,7 +278,7 @@ data EX2;
 	drop EventName;
 run;
 data EX3;
-	length Drugs $300.;
+	length Drugs $500.;
 		do until(last.Case_N);
 			set EX3_LONG;
 			by Case_N;
@@ -287,7 +287,7 @@ data EX3;
 	drop DrugName;
 run;
 data EX4;
-	length Drugs $300. Events $300.;
+	length Drugs $500. Events $500.;
 		do until(last.Case_N);
 			set EX4_LONG;
 			by Case_N;
@@ -296,6 +296,8 @@ data EX4;
 		end;
 	drop DrugName EventName;
 run;
+
+options compress=yes;
 
 /* move Sample_Cases to permanent library and clean up work */
 proc sql noprint;
