@@ -30,8 +30,8 @@
 */
 
 /* specify output location for the ouput files (sim_out) and the expected input file drug_event_example.sas7bdat (sim_in) */
-		libname sim_in 'C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\example input data\simulating cases';
-		libname sim_out 'C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\example input data';
+		libname sim_in 'C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\simulating cases';
+		libname sim_out 'C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\simulating cases\example input data';
 
 /* specify parameters for data creation */
 		%let NCases=10000; /* how many cases to genereate */

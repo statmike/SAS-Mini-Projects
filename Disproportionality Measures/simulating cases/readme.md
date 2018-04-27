@@ -4,12 +4,12 @@
 
 ## Background
 
-When problems, adverse events, occur while taking a drug or using a medical device, they should be reported to the company that created them.  This is called a spontaneous report.  Databases of the reports are mined to uncover possible issues where an event is potentially driven by the use of the drug or device.  Given that these databases only contain responses and are missing all the instances of no event with the drug or device, a different type of analysis is used to find abnormal combinations of drug/event.  These types of analysis are called disproportionality measures.  An overview of common ones of these and how to calculate them can be found in [Disproportionality Measures](../../.)
+When problems, adverse events, occur while taking a drug or using a medical device, they should be reported to the company that created them.  This is called a spontaneous report.  Databases of the reports are mined to uncover possible issues where an event is potentially driven by the use of the drug or device.  Given that these databases only contain responses and are missing all the instances of no event with the drug or device, a different type of analysis is used to find abnormal combinations of drug/event.  These types of analysis are called disproportionality measures.  An overview of common ones of these and how to calculate them can be found in [Disproportionality Measures](../.)
 
 ---
 
 ## Method of Simulation
-To get a simulated sample with meaningful representations of drug/event combinations and representative frequencies, a dataset of coded real adverse events data is used to create distributions: [`drug_event_example.sas7bdat`](./).  This sample data is missing case information so a distribution of expected number of unique events per case is created within the simulation.  By sampling from these distributions the requested number of cases can be simulated.
+To get a simulated sample with meaningful representations of drug/event combinations and representative frequencies, a dataset of coded real adverse events data is used to create distributions: `drug_event_example.sas7bdat`.  This sample data is missing case information so a distribution of expected number of unique events per case is created within the simulation.  By sampling from these distributions the requested number of cases can be simulated.
 
 The simulation code is used to create 4 different example scenarios for adverse event databases.  Each of these differ by the type of information with a case.  
 * Example 1 (EX1): each case is a single pair with one drug and one event
