@@ -32,7 +32,7 @@ The file `drug_event_example.sas7bdat` is a coded dataset created from a real ad
 ---
 
 ### Output Data from Simulation
-The following summarizes each example and the file formats for the output.  A table with the first 5 cases (`Case_N`) is included for review.
+The following summarizes each example and the file formats for the output.  A table with the first 5 cases (`Case_N`) is included for review.  These files can be found in subfolder [`\example input data`](./example input data).
 * Example 1 (EX1): each case is a single pair with one drug and one event
   * `ex1.sas7bdat`
 
