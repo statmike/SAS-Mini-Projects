@@ -30,17 +30,16 @@
 */
 
 /* include the macros for building simulated cases (%basecase) and adding drugs (%add_drugs) and events (%add_events) */
-		%include './Macros/basecase.sas';
-		%include './Macros/add_events.sas';
-		%include './Macros/add_drugs.sas';
+		%include '../../../Disproportionality Measures/simulating cases/Macros/basecase.sas';
+		%include '../../../Disproportionality Measures/simulating cases/Macros/add_events.sas';
+		%include '../../../Disproportionality Measures/simulating cases/Macros/add_drugs.sas';
 
 /* specify output location for the ouput files (sim_out) and the expected input file drug_event_example.sas7bdat (sim_in) */
-		libname sim_in 'C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\simulating cases';
-		libname sim_out 'C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\simulating cases\examples';
+		libname sim_in '../../../Disproportionality Measures/simulating cases';
+		libname sim_out './examples';
 
 /* specify parameters for data creation */
-		%let NCases=10000; /* how many cases to genereate */
-
+		%let NCases=10; /* how many cases to genereate */
 
 /* create information tables: drug_event, drugs, events */
 		Proc sql;

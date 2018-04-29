@@ -133,19 +133,23 @@ The following summarizes each example and the file formats for the output.  A ta
 ### Code for Simulating Cases
 
 #### Setup
-The code found in [`simulate_cases`](./simulate_cases.sas) is used to create simulated adverse event databases.  To use this code you need to edit lines 32-38:
+The code found in [`simulate_cases`](./simulate_cases.sas) is used to create simulated adverse event databases.  To use this code you need to edit lines 31-42:
 ```SAS
+/* include the macros for building simulated cases (%basecase) and adding drugs (%add_drugs) and events (%add_events) */
+		%include './Macros/basecase.sas';
+		%include './Macros/add_events.sas';
+		%include './Macros/add_drugs.sas';
+
 /* specify output location for the ouput files (sim_out) and the expected input file drug_event_example.sas7bdat (sim_in) */
-		libname sim_in 'C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\example input data\simulating cases';
-		libname sim_out 'C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\example input data';
+		libname sim_in 'C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\simulating cases';
+		libname sim_out 'C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\simulating cases\examples';
 
 /* specify parameters for data creation */
 		%let NCases=10000; /* how many cases to genereate */
-		%let SEED=54321; /* specify a seed value for repeatability */
 ```
 
 #### Running
-Running the code as is will create the sample data for the example scenarios mentions above: EX1, EX2, EX3, and EX4.  The long versions of these example scenarios are created with the macro calls on lines 258-262:
+Running the code as is will create the sample data for the example scenarios mentions above: EX1, EX2, EX3, and EX4.  The long versions of these example scenarios are created with the macro calls on lines 73-77:
 ```sas
 %basecase(core,&NCases.,1);
 	%add_events(core,EX1,1);
@@ -157,6 +161,9 @@ The formatting of these output data and the creation of the single row per case 
 
 #### Expected Run Time (and suggestions to make it faster)
 The examples all include 10,000 cases.  This run of the code took about 1 hour 45 minutes on workstation without competing jobs.  There are several steps that could be taken to make the code run more efficiently.
+* Parallelization of the simulated cases with `RSUBMIT` statements (SAS/CONNECT Software)
+  * Create batches of simulated cases with separate calls to the macros
+  * Combine the separate batches and finish processing
 * Parallelization with `RSUBMIT` statements (SAS/CONNECT Software)
 
   1. Run the First macro call that creates the dataset `core`
@@ -183,7 +190,7 @@ The examples all include 10,000 cases.  This run of the code took about 1 hour 4
 
 ### Review and Further uses for the provided code
 
-#### Macro `%basecase`
+#### Macro [`%basecase`](./Macros/basecase.sas)
 * Create a dataset with columns `Case_N` and `DrugName`.  Creates the number of cases specified by the input `reps`.  Samples the number of drugs per case specified by input `n_drugs`.
 * Inputs:
   * `outds` - the name for the output dataset.
@@ -198,7 +205,7 @@ The examples all include 10,000 cases.  This run of the code took about 1 hour 4
       if &n_drugs.<0 then n_drugs=rand("Table",.3,.3,.2,.10,.05,.03,.02);
       ```
 
-#### Macro `%add_events`
+#### Macro [`%add_events`](./Macros/add_events.sas)
 * Modifies the input dataset by adding events for each distinct combination of `Case_N` and `DrugName`.  The events will be sampled from the distribution of known events reported for the drug.  If events are already in the input dataset they will be preserved and new events added without duplication.
 * Inputs:
   * `inds` - the name of the input dataset.
@@ -214,7 +221,7 @@ The examples all include 10,000 cases.  This run of the code took about 1 hour 4
       if &N_EVENTS.<0 then N_EVENTS=rand("Table",.3,.2,.15,.10,.05,.05,.05,.05,.01,.01,.01,.01,.01);
       ```
 
-#### Macro `%add_drugs`
+#### Macro [`%add_drugs`](./Macros/add_drugs.sas)
 * Modifies the input dataset by adding drugs for each distinct combination of `Case_N` and `EventName`.  The drugss will be sampled from the distribution of known drugs reported for the event.  If drugs are already in the input dataset they will be preserved and new drugs added without duplication.
 * Inputs:
   * `inds` - the name of the input dataset.
