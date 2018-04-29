@@ -15,7 +15,7 @@
       * Example 3 (EX3): each case is made up of a group of one or more drugs and a single event
       * Example 4 (EX4): each case is made up of a group of one or more drugs and a group of one or more events
   * **Simulated Data**
-    * The `simulating cases` [readme](./simulating%20cases/readme.md) file covers the details of how the simulated adverse event datasets are created and how the macros within that code could be used to simulated additional scenarios. This includes simulating cases based on adverse event databases you have access to.
+    * The `simulating cases` [readme](./simulating%20cases/readme.md) file covers the details of how the simulated adverse event datasets are created and how the macros within that code could be used to simulate additional scenarios. This includes simulating cases based on adverse event databases you have access to.
 
 ---
 
@@ -26,6 +26,23 @@
 ---
 ---
 ---
+
+New outline:
+ synopsis
+ getting started
+ background
+ macros
+  create 2x2
+  disproportionality
+  ebgm
+ Examples
+ Future Development ideas
+  graphics and tables for review
+
+ToDo
+ adjust model in EBGM macro to achieve better mixing in the simulated data examples
+ 
+ ---
 
 ## Synopsis
 The code in this project is used to calculate disproportionality measures on data such as spontaneously reported adverse events.
