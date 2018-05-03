@@ -14,6 +14,7 @@
       * Example 2 (EX2): each case is made up of a single drug and a group of one or more events
       * Example 3 (EX3): each case is made up of a group of one or more drugs and a single event
       * Example 4 (EX4): each case is made up of a group of one or more drugs and a group of one or more events
+      * **SPECIAL NOTE**: The simulated data here only has 10,000 Cases.  This results in the EBGM estimation being unreliable.  A larger simulated dataset (250,000 cases) and similar example.sas file can be found [**here**](../Parallelism/Connect/Examples/Disproportionality%20Measures) and it has much more reliable estimation.
   * **Simulated Data**
     * The `simulating cases` [readme](./simulating%20cases/readme.md) file covers the details of how the simulated adverse event datasets are created and how the macros within that code could be used to simulate additional scenarios. This includes simulating cases based on adverse event databases you have access to.
 
@@ -41,7 +42,7 @@ New outline:
 
 ToDo
  adjust model in EBGM macro to achieve better mixing in the simulated data examples
- 
+
  ---
 
 ## Synopsis

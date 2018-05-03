@@ -14,10 +14,13 @@
 					if &n_drugs.<0 then n_drugs=rand("Table",.3,.3,.2,.10,.05,.03,.02);
 						else n_drugs=&n_drugs.;
 					do nd = 1 to n_drugs;
-						DrugName=drugs[rand("Table", of p[*])];
+						lookup = rand("Table", of p[*]);
+							if lookup>&COUNT. then lookup=int(&COUNT.*rand("Uniform",0,1)+1);
+						DrugName=drugs[lookup];
 						output;
 					end;
 				end;
+				keep Case_N DrugName;
 				drop nd n_drugs;
 			run;
 			proc sql;
