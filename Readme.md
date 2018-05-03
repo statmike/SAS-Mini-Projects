@@ -40,6 +40,11 @@ options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAU
 * [Organizing Macros](./Organizing%20Macros): workflow and macros for macros
 * [PROC MCMC Notes](./PROC%20MCMC%20Notes): Key links and notes for all versions of PROC MCMC
 * [Log Parsing](./Log%20Parsing): Coming Soon! How to examine logs for code efficiency opportunities
-* [Parallel Computing in SAS](./Parallelism): Coming Soon! How to create parallelism in your code
-* [ODS Notes and Default SAS Output Across Versions](./ODS%20notes): Coming Soon!
-
+* [Proc FCMP](./Proc%20FCMP): Coming Soon! The power to build your own functions
+* [Parallel Computing and Threading in SAS](./Parallelism): Coming Soon! How to create parallelism and trigger threading in your code
+	* [SAS Connect & SAS Grid Manager](./Connect): Coming Soon! Running Jobs and steps in parallel with just a few coding skills
+	* [Threading in SAS Procs](./Threading): Coming Soon! Unlocking the power of threading in SAS Procedures
+	* [Proc DS2](./Proc%20DS2): Coming Soon! Add threading to your data step
+	* [SAS Viya Data Step](./Viya%20Data%20Step): Coming Soon! Automatic threading of SAS Data Steps!!
+* [ODS Notes and Default SAS Output Across Versions and Interfaces](./ODS%20notes): Coming Soon!
+* [Using GitHub with SAS - My Workflow(s)](./GitHub%20and%20SAS): Coming Soon!
