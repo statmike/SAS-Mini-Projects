@@ -21,7 +21,7 @@
 							group by DrugName))
 				;
 			quit;
-			
+
 			data basecase;
 				array drugs [&COUNT.] $ _TEMPORARY_ (&DRUGS.);
 				array p [&COUNT.] _TEMPORARY_ (&D_PCT.);
@@ -40,7 +40,7 @@
 				drop nd n_drugs;
 			run;
 			proc sql;
-				create table &outds. as select distinct Case_n, DrugName from basecase;
+				create table &outds. as select distinct Case_n, DrugName from basecase order by Case_N, DrugName;
 				drop table basecase;
 			quit;
 
