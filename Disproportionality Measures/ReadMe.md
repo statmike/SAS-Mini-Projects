@@ -9,14 +9,14 @@
     * [`ebgm.sas`](./Macros/ebgm.sas)
       * caculates EBGM measures and adds them to the input table of drug/event pairs and 2x2 table data
   * **Data scenarios**
-    * The `example.sas` code has examples of running the macros with data in different scenarios.  These scenarios are covered in more detail in the `simulating cases` [readme](./simulating%20cases/readme.md) file
+    * The `example.sas` code has examples of running the macros with data in different scenarios.  These scenarios are covered in more detail in the `simulating cases` [readme](../Example%20Data/Disproportionality%20Measures/readme.md) file
       * Example 1 (EX1): each case is a single pair with one drug and one event
       * Example 2 (EX2): each case is made up of a single drug and a group of one or more events
       * Example 3 (EX3): each case is made up of a group of one or more drugs and a single event
       * Example 4 (EX4): each case is made up of a group of one or more drugs and a group of one or more events
-      * **SPECIAL NOTE**: The simulated data here only has 10,000 Cases.  This results in the EBGM estimation being unreliable.  A larger simulated dataset (250,000 cases) and similar example.sas file can be found [**here**](../Parallelism/Connect/Examples/Disproportionality%20Measures) and it has much more reliable estimation.
+
   * **Simulated Data**
-    * The `simulating cases` [readme](./simulating%20cases/readme.md) file covers the details of how the simulated adverse event datasets are created and how the macros within that code could be used to simulate additional scenarios. This includes simulating cases based on adverse event databases you have access to.
+    * The `simulating cases` [readme](../Example%20Data/Disproportionality%20Measures/readme.md) file covers the details of how the simulated adverse event datasets are created and how the macros within that code could be used to simulate additional scenarios. This includes simulating cases based on adverse event databases you have access to.
 
 ---
 

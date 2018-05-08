@@ -39,7 +39,12 @@ ods graphics on;
 %include './Macros/EBGM.sas';
 
 /* define a library where the input data is located.  This library points to the simulated data example */
-libname sim_in 'C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\simulating cases\examples';
+/* 10,000 Cases - does not work well for EBGM */
+  *libname sim_in '../Example Data/Disproportionality Measures/1 - Simulated Data/examples';
+/* 250,000 Cases */
+  *libname sim_in '../Example Data/Disproportionality Measures/2 - Parallel/examples';
+/* 500,000 Cases */
+  libname sim_in '../Example Data/Disproportionality Measures/3 - HASH/examples';
 
 /* Example 1 - Each case is a single pair with one drug and one event*/
         /* Create the 2x2 tables from the drug/event pairs */
