@@ -40,9 +40,6 @@ New outline:
  Future Development ideas
   graphics and tables for review
 
-ToDo
- adjust model in EBGM macro to achieve better mixing in the simulated data examples
-
  ---
 
 ## Synopsis
@@ -129,11 +126,6 @@ Example datasets are provided:
 ## /Macros
 * %create2x2 - uses input data where each row represents a drug/event combination
   * converts Drug/Event/N11 into Drug/Event/N11/N12/N22/N21
-* %cases_to_caserows - converts Case/Drug/Event (where a case can have more than one row) to Case/Drug/Events (where Events is a space delimited list)
-* %create2x2fromcases - uses input data where each row represents a case with 1 or more events
-  * list=LONG - (default) converts Case/Drug/Event (where a case can have more than one row) to Case/Drug/Events (where Events is a list) then into Drug/Event/N11/N
-  * calls the %cases_to_caserows macro
-list=WIDE - skips conversion of case list in multiple rows to single row (%cases_to_caserows)
 * %disproportionality
   * converts input data from %create2x2 by adding columns for disproportionality metrics
   * optional parameter EBGM=Y is required to request EBGM metrics (by default EBGM=N) - This option will make run time longer
@@ -143,8 +135,6 @@ list=WIDE - skips conversion of case list in multiple rows to single row (%cases
 
 ## Call Tree
 * %create2x2
-* %create2x2fromcases
-  * %cases_to_caserows (can also be used standalone)
 * %disproportionality
   * %ebgm (can also be used standalone)
 
