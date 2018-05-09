@@ -11,13 +11,13 @@
 
 %LET NCases=10000;
 
-
+options nosource nonotes;
 	%basecase(core,&NCases.,1);
 		%add_events(core,EX1,1);
 		%add_events(core,EX2_LONG,-1);
 		%add_drugs(EX1,EX3_LONG,-1);
 		%add_drugs(EX2_LONG,EX4_LONG,-1);
-
+options source notes;
 
 %caserows(EX2_LONG,EX2);
 %caserows(EX3_LONG,EX3);
