@@ -24,3 +24,9 @@ The goal of this project is to automate the process of updating .sas files when 
   * Relative Paths
   * Repairing
   * Creating
+  * when a .sas file moves that is referenced by other .sas files (%include) which are not moved
+
+* **Things to remember when creating this**
+  * %include can reference filerefs to a folder structure, including sub folders
+  * pipe to read a folder structure - make flexible for OS
+  * use hash for lookups
