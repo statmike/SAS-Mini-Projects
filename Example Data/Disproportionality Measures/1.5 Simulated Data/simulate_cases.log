@@ -1,0 +1,356 @@
+1                                       The SAS System                08:58 Monday, May 7, 2018
+
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M5) 
+      Licensed to SAS INTERNAL 940 17W43 WX6+ FULL PROD+GRID RESTRIC, Site 70146502.
+NOTE: This session is executing on the X64_10PRO  platform.
+
+
+
+NOTE: Updated analytical products:
+      
+      SAS/STAT 14.3
+      SAS/ETS 14.3
+      SAS/OR 14.3
+      SAS/IML 14.3
+      SAS/QC 14.3
+
+NOTE: Additional host information:
+
+ X64_10PRO WIN 10.0.16299  Workstation
+
+NOTE: SAS initialization used:
+      real time           0.20 seconds
+      cpu time            0.15 seconds
+      
+1          /* lineage
+2          	original dispro
+3          	parallel
+4          	two here in this folder
+5          		optimized original: sql
+6          		hash version - no sql
+7          	next.... FCMP of the HASH
+8          	next.... DS2 of HASH and/or FCMP
+9          	next Viya
+10         */
+11         
+12         
+13         /* include the macros for building simulated cases (%basecase) and adding drugs
+13       ! (%add_drugs) and events (%add_events) */
+14         		%include './Macros/basecase.sas';
+62         		*%include './Macros/add_events.sas';
+63         		*%include './Macros/add_drugs.sas';
+64         
+65         /* specify output location for the ouput files (sim_out) and the expected input file
+65       !  drug_event_example.sas7bdat (sim_in) */
+66         		libname sim_in '../../../Disproportionality Measures/simulating cases';
+NOTE: Libref SIM_IN was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\PROJECTS\SAS-Mini-Projects\Disproportionality Measures\simulating cases
+67         		libname sim_out './examples';
+NOTE: Libref SIM_OUT was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: C:\PROJECTS\SAS-Mini-Projects\Proc FCMP\Examples\Disproportionality 
+2                                       The SAS System                08:58 Monday, May 7, 2018
+
+      Measures\examples
+68         
+69         %LET NCases=10000;
+70         /* not HASH
+71         options nosource nonotes;
+72         	%basecase(core,&NCases.,1);
+73         		%add_events(core,EX1,1);
+74         		%add_events(core,EX2_LONG,-1);
+75         		%add_drugs(EX1,EX3_LONG,-1);
+76         		%add_drugs(EX2_LONG,EX4_LONG,-1);
+77         options source notes;
+78         */
+79         /* with HASH */
+80         %include './Macros/add_events_hash.sas';
+189        %include './Macros/add_drugs_hash.sas';
+298        %include './Macros/caserows.sas';
+335        
+336        	%basecase(core,&NCases.,1);
+NOTE: The query requires remerging summary statistics back with the original data.
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.15 seconds
+      cpu time            0.20 seconds
+      
+
+
+NOTE: The data set WORK.BASECASE has 10000 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+NOTE: Table WORK.CORE created, with 10000 rows and 2 columns.
+
+NOTE: Table WORK.BASECASE has been dropped.
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+337        		%add_events(core,EX1,1);
+
+NOTE: Input data set is already sorted; it has been copied to the output data set.
+NOTE: There were 10000 observations read from the data set WORK.CORE.
+NOTE: The data set WORK.EX1 has 10000 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 385734 observations read from the data set SIM_IN.DRUG_EVENT_EXAMPLE.
+3                                       The SAS System                08:58 Monday, May 7, 2018
+
+NOTE: There were 10000 observations read from the data set WORK.EX1.
+NOTE: The data set WORK.EX1 has 10000 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           15.95 seconds
+      cpu time            15.95 seconds
+      
+
+338        			*%add_events(EX1,EX1a,1);
+339        			*%add_events(EX1a,EX1b,1);
+340        		%add_events(core,EX2_LONG,-1);
+
+NOTE: Input data set is already sorted; it has been copied to the output data set.
+NOTE: There were 10000 observations read from the data set WORK.CORE.
+NOTE: The data set WORK.EX2_LONG has 10000 observations and 2 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 385734 observations read from the data set SIM_IN.DRUG_EVENT_EXAMPLE.
+NOTE: There were 10000 observations read from the data set WORK.EX2_LONG.
+NOTE: The data set WORK.EX2_LONG has 32905 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           15.81 seconds
+      cpu time            15.78 seconds
+      
+
+341        		%add_drugs(EX1,EX3_LONG,-1);
+
+NOTE: There were 10000 observations read from the data set WORK.EX1.
+NOTE: The data set WORK.EX3_LONG has 10000 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+WARNING: Length of character variable DrugName has already been set. 
+         Use the LENGTH statement as the very first statement in the DATA STEP to declare the 
+         length of a character variable.
+
+NOTE: There were 385734 observations read from the data set SIM_IN.DRUG_EVENT_EXAMPLE.
+NOTE: There were 10000 observations read from the data set WORK.EX3_LONG.
+NOTE: The data set WORK.EX3_LONG has 33957 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           23.24 seconds
+      cpu time            23.25 seconds
+      
+
+342        		%add_drugs(EX2_LONG,EX4_LONG,-1);
+
+4                                       The SAS System                08:58 Monday, May 7, 2018
+
+NOTE: There were 32905 observations read from the data set WORK.EX2_LONG.
+NOTE: The data set WORK.EX4_LONG has 32905 observations and 3 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+
+WARNING: Length of character variable DrugName has already been set. 
+         Use the LENGTH statement as the very first statement in the DATA STEP to declare the 
+         length of a character variable.
+
+NOTE: There were 385734 observations read from the data set SIM_IN.DRUG_EVENT_EXAMPLE.
+NOTE: There were 32905 observations read from the data set WORK.EX4_LONG.
+NOTE: The data set WORK.EX4_LONG has 56941 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           1:16.06
+      cpu time            1:16.09
+      
+
+343        %caserows(EX2_LONG,EX2);
+NOTE: Table WORK.TEVENT created, with 32905 rows and 2 columns.
+
+NOTE: Table WORK.TDRUG created, with 10000 rows and 2 columns.
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.07 seconds
+      
+
+
+NOTE: There were 32905 observations read from the data set WORK.TEVENT.
+NOTE: The data set WORK.TEVENT has 10000 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 10000 observations read from the data set WORK.TDRUG.
+NOTE: The data set WORK.TDRUG has 10000 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.11 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: Table WORK.EX2 created, with 10000 rows and 3 columns.
+
+NOTE: Table WORK.TEVENT has been dropped.
+NOTE: Table WORK.TDRUG has been dropped.
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.04 seconds
+5                                       The SAS System                08:58 Monday, May 7, 2018
+
+      cpu time            0.09 seconds
+      
+
+344        %caserows(EX3_LONG,EX3);
+NOTE: Table WORK.TEVENT created, with 10000 rows and 2 columns.
+
+NOTE: Table WORK.TDRUG created, with 33957 rows and 2 columns.
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.03 seconds
+      
+
+
+NOTE: There were 10000 observations read from the data set WORK.TEVENT.
+NOTE: The data set WORK.TEVENT has 10000 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 33957 observations read from the data set WORK.TDRUG.
+NOTE: The data set WORK.TDRUG has 10000 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.00 seconds
+      
+
+NOTE: Table WORK.EX3 created, with 10000 rows and 3 columns.
+
+NOTE: Table WORK.TEVENT has been dropped.
+NOTE: Table WORK.TDRUG has been dropped.
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+
+345        %caserows(EX4_LONG,EX4);
+NOTE: Table WORK.TEVENT created, with 32905 rows and 2 columns.
+
+NOTE: Table WORK.TDRUG created, with 34036 rows and 2 columns.
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.07 seconds
+      
+
+
+NOTE: There were 32905 observations read from the data set WORK.TEVENT.
+NOTE: The data set WORK.TEVENT has 10000 observations and 2 variables.
+6                                       The SAS System                08:58 Monday, May 7, 2018
+
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 34036 observations read from the data set WORK.TDRUG.
+NOTE: The data set WORK.TDRUG has 10000 observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: Table WORK.EX4 created, with 10000 rows and 3 columns.
+
+NOTE: Table WORK.TEVENT has been dropped.
+NOTE: Table WORK.TDRUG has been dropped.
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.06 seconds
+      
+
+346        
+347        options compress=yes;
+348        
+349        /* move Sample_Cases to permanent library and clean up work */
+350        proc sql noprint;
+351        	create table sim_out.EX1 as select * from EX1;
+NOTE: Compressing data set SIM_OUT.EX1 increased size by 40.00 percent. 
+      Compressed is 7 pages; un-compressed would require 5 pages.
+NOTE: Table SIM_OUT.EX1 created, with 10000 rows and 3 columns.
+
+352        	create table sim_out.EX2_LONG as select * from EX2_LONG;
+NOTE: Compressing data set SIM_OUT.EX2_LONG increased size by 11.76 percent. 
+      Compressed is 19 pages; un-compressed would require 17 pages.
+NOTE: Table SIM_OUT.EX2_LONG created, with 32905 rows and 3 columns.
+
+353        	create table sim_out.EX3_LONG as select * from EX3_LONG;
+NOTE: Compressing data set SIM_OUT.EX3_LONG increased size by 11.76 percent. 
+      Compressed is 19 pages; un-compressed would require 17 pages.
+NOTE: Table SIM_OUT.EX3_LONG created, with 33957 rows and 3 columns.
+
+354        	create table sim_out.EX2 as select * from EX2;
+NOTE: Compressing data set SIM_OUT.EX2 decreased size by 93.63 percent. 
+      Compressed is 10 pages; un-compressed would require 157 pages.
+NOTE: Table SIM_OUT.EX2 created, with 10000 rows and 3 columns.
+
+355        	create table sim_out.EX3 as select * from EX3;
+NOTE: Compressing data set SIM_OUT.EX3 decreased size by 93.63 percent. 
+      Compressed is 10 pages; un-compressed would require 157 pages.
+NOTE: Table SIM_OUT.EX3 created, with 10000 rows and 3 columns.
+7                                       The SAS System                08:58 Monday, May 7, 2018
+
+
+356        	create table sim_out.EX4 as select * from EX4;
+NOTE: Compressing data set SIM_OUT.EX4 decreased size by 91.72 percent. 
+      Compressed is 13 pages; un-compressed would require 157 pages.
+NOTE: Table SIM_OUT.EX4 created, with 10000 rows and 3 columns.
+
+357        	drop table core;
+NOTE: Table WORK.CORE has been dropped.
+358        	drop table drugs;
+WARNING: File WORK.DRUGS.DATA does not exist.
+WARNING: Table WORK.DRUGS has not been dropped.
+359        	drop table drug_event;
+WARNING: File WORK.DRUG_EVENT.DATA does not exist.
+WARNING: Table WORK.DRUG_EVENT has not been dropped.
+360        	drop table events;
+WARNING: File WORK.EVENTS.DATA does not exist.
+WARNING: Table WORK.EVENTS has not been dropped.
+361        	drop table EX1, EX2, EX3, EX2_LONG, EX3_LONG, EX4, EX4_LONG;
+NOTE: Table WORK.EX1 has been dropped.
+NOTE: Table WORK.EX2 has been dropped.
+NOTE: Table WORK.EX3 has been dropped.
+NOTE: Table WORK.EX2_LONG has been dropped.
+NOTE: Table WORK.EX3_LONG has been dropped.
+NOTE: Table WORK.EX4 has been dropped.
+NOTE: Table WORK.EX4_LONG has been dropped.
+362        quit;
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.25 seconds
+      cpu time            0.18 seconds
+      
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           2:12.68
+      cpu time            2:12.17
+      
