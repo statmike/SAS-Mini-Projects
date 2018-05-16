@@ -39,7 +39,7 @@ options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAU
 * [Disproportionality Measures](./Disproportionality%20Measures): PRR, RR, IC, EBGM (MGPS) and more
 * [Organizing Macros](./Organizing%20Macros): workflow and macros for macros
 * [PROC MCMC Notes](./PROC%20MCMC%20Notes): Key links and notes for all versions of PROC MCMC
-* [Update .sas files when data moves](./Move%20SAS): Coming Soon: Automatically update all of your .sas files so they work when you move your data source(s) 
+* [Update .sas files when data moves](./Move%20SAS): Coming Soon: Automatically update all of your .sas files so they work when you move your data source(s)
 * Coming Soon:
 	* [Log Parsing](./Log%20Parsing): Coming Soon! How to examine logs for code efficiency opportunities
 	* [Proc FCMP](./Proc%20FCMP): Coming Soon! The power to build your own functions
@@ -50,3 +50,14 @@ options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAU
 		* [SAS Viya Data Step](./Viya%20Data%20Step): Coming Soon! Automatic threading of SAS Data Steps!!
 	* [ODS Notes and Default SAS Output Across Versions and Interfaces](./ODS%20notes): Coming Soon!
 	* [Using GitHub with SAS - My Workflow(s)](./GitHub%20and%20SAS): Coming Soon!
+
+## Future Considerations
+* New Log Parser that keeps code and notes. Along with plots for investigation.
+* Data Masking Code and Studio Task - add to GitHub
+* Learn Bayesian methods by simulation
+* Proc MCMC from Python
+* P-Value versus CI versus Credible Intervals
+* Job that edits Jobs
+* How to use MPCONNECT
+* How ODS Works
+* top tips for simulation and debugging
