@@ -57,6 +57,10 @@
         * [MCMC What's New](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_whatsnew_sect017.htm&locale=en)
             * The CMPTMODEL statement fits compartment models in pharmacokinetic analysis.
             * You can now model missing responses in the presence of missing covariates.
+    * 15.1
+        * [SAS/STAT](http://support.sas.com/documentation/onlinedoc/stat/index.html#stat151)
+        * [MCMC What's New](https://documentation.sas.com/?docsetId=statug&docsetTarget=statug_whatsnew_sect019.htm&docsetVersion=15.1&locale=en)
+            * The CMPTMODEL statement in PROC MCMC fits one-, two-, and three-compartment models to subjects who are in steady-state conditions.
 
 ## Very Important Sections of the Documentation for the Latest Release
 *	[Introduction to Bayesian Analysis Procedures](http://go.documentation.sas.com/?docsetId=statug&docsetVersion=14.3&docsetTarget=statug_introbayes_toc.htm&locale=en)
