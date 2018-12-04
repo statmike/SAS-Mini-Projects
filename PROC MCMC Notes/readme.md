@@ -61,6 +61,8 @@
         * [SAS/STAT](http://support.sas.com/documentation/onlinedoc/stat/index.html#stat151)
         * [MCMC What's New](https://documentation.sas.com/?docsetId=statug&docsetTarget=statug_whatsnew_sect019.htm&docsetVersion=15.1&locale=en)
             * The CMPTMODEL statement in PROC MCMC fits one-, two-, and three-compartment models to subjects who are in steady-state conditions.
+        * Introduced [Proc BGLIMM](https://go.documentation.sas.com/?docsetId=statug&docsetVersion=15.1&docsetTarget=statug_bglimm_overview.htm&locale=en) - a high-performance, sampling-based procedure that provides Bayesian inference for generalized linear mixed models (GLMMs)
+          * PROC BGLIMM uses syntax similar to that of PROC MIXED and PROC GLIMMIX in specifying a GLMM. You use the MODEL statement to specify the distribution and link function, the RANDOM statement to specify the random effects, the CLASS statement to specify categorical variables, the REPEATED statement to specify the correlation of longitudinal responses, and the ESTIMATE statements for inferences. PROC BGLIMM draws samples from the target distributions, computes summary and diagnostic statistics, and saves the posterior samples in an output data set that you can use for further analysis.
 
 ## Very Important Sections of the Documentation for the Latest Release
 *	[Introduction to Bayesian Analysis Procedures](https://documentation.sas.com/?docsetId=statug&docsetTarget=statug_introbayes_toc.htm&docsetVersion=15.1&locale=en)
