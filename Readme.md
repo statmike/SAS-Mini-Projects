@@ -38,7 +38,8 @@ options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAU
 ## Projects
 * [Disproportionality Measures](./Disproportionality%20Measures): PRR, RR, IC, EBGM (MGPS) and more
 * [Organizing Macros](./Organizing%20Macros): workflow and macros for macros
-* [PROC MCMC Notes](./PROC%20MCMC%20Notes): Key links and notes for all versions of PROC MCMC
+* [PROC MCMC Notes](https://github.com/statmike/Bayesian-Analysis--Primarily-SAS-): Key links and notes for all versions of PROC MCMC
+	* This moved to its own repository (link updated)
 * [Update .sas files when data moves](./Move%20SAS): Coming Soon: Automatically update all of your .sas files so they work when you move your data source(s)
 * Coming Soon:
 	* [Log Parsing](./Log%20Parsing): Coming Soon! How to examine logs for code efficiency opportunities
