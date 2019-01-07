@@ -27,17 +27,17 @@ C:\PROJECTS
 To move this project to another operating environment or path you need to change any paths defined by `libname` and `filename` statements.  I store any hardcoded paths at the top of `.sas` files.  I never hardcode paths inside of macros.
 
 ## Using Macros
-As shown in the *Layout* section, macros are stored in subfolders named `/Macros`. To make these available to a SAS session these folders can be setup as autocall locations.  In the [Organizing Macros](./Organizing Macros) project there is a macro, `%define_autocalls`, that makes this easy.  To use this macro, manually add the location of the `/Macros` folder for *Organizing Macros* so that it can be called for the entire `C:\PROJECTS` folder structure.
+As shown in the *Layout* section, macros are stored in subfolders named `/Macros`. To make these available to a SAS session these folders can be setup as autocall locations.  In the [Organizing and Using SAS Macros](https://github.com/statmike/Organizing-and-Using-SAS-Macros) repository there is a macro, `%define_autocalls`, that makes this easy.  To use this macro, manually add the location of the `/Macros` folder for *Organizing Macros* so that it can be called for the entire `C:\PROJECTS` folder structure.
 
 Add these lines to the users autoexec.sas file:
 ```sas
-options sasautos=("C:\PROJECTS\SAS-Mini-Projects\Organizing Macros\Macros" SASAUTOS);
+options sasautos=("C:\PROJECTS\Organizing-and-Using-SAS-Macros\Macros" SASAUTOS);
 %define_autocalls(C:\PROJECTS,SUB=Y);
 ```
 
 ## Projects
-* [Disproportionality Measures](./Disproportionality%20Measures): PRR, RR, IC, EBGM (MGPS) and more
-* [Organizing Macros](./Organizing%20Macros): workflow and macros for macros
+* [Disproportionality Measures with SAS](https://github.com/statmike/Disproportionality-Measures-with-SAS): PRR, RR, IC, EBGM (MGPS) and more
+* [Organizing and Using SAS Macros](https://github.com/statmike/Organizing-and-Using-SAS-Macros): workflow and macros for macros
 * [PROC MCMC Notes](https://github.com/statmike/Bayesian-Analysis--Primarily-SAS-): Key links and notes for all versions of PROC MCMC
 	* This moved to its own repository (link updated)
 * [Update .sas files when data moves](./Move%20SAS): Coming Soon: Automatically update all of your .sas files so they work when you move your data source(s)
