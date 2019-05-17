@@ -1,5 +1,5 @@
 /* code to read a directory, find .sas files, open and replace strings, save */
-
+/* build out */
 
 
 filename DIRLIST pipe 'dir "D:\CODE To Change Text in Directory\stp" /s';
